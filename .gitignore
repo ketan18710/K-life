@@ -12,7 +12,7 @@
 /build
 
 #VSCODE
-/.vscodegit 
+/.vscode
 
 # misc
 .DS_Store
