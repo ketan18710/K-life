@@ -1,0 +1,22 @@
+@import '../../styles//base/main.scss' ;
+.Card1{
+  padding: 1rem;
+  width: 250px;
+  height: 250px;
+  @include centreAlign;
+  background-repeat:no-repeat ;
+  background-size: contain;
+  .description{
+    display: none;
+    width: 200px;
+    height: 200px;
+  }
+  &:hover{
+    .description{
+      display: block;
+      background-color: $marine-blue ;
+      opacity: 0.3;
+      @include centreAlign;
+    }
+  }
+}
