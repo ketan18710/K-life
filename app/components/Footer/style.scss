@@ -1,0 +1,28 @@
+@import '../../styles/base/main.scss';
+.Footer{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 3rem ;
+  background-color: $primary-green;
+  .mapouter{position:relative;text-align:right;height:100px;width:300px;}
+  .gmap_canvas {overflow:hidden;background:none!important;height:100px;width:300px;}
+  .info{
+    margin-bottom: auto;
+    h3{
+      font-size: 18px;
+      font-weight: 600;
+      color: $white;
+    }
+    h4{
+      font-size: 16px;
+      font-weight: 500;
+      color: $white;
+      margin: 0 0 6px 0;
+      a{
+        text-decoration: none;
+        color: $white;
+        margin-left: 1rem;
+      }
+    }
+  }
+}

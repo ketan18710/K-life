@@ -2,6 +2,11 @@
 .KL__header{
   display: flex;
   height: 100px;
+  position: fixed;
+  top: 1rem;
+  width: 100%;
+  background: white;
+  z-index: 100;
   // border: 1px solid black;
   @include centreAlign;
   justify-content: unset;
@@ -26,17 +31,36 @@
       margin: 0;
       width: 20%;
       height: 100%;
-      font-size: 16px;
+      font-size: 18px;
+      font-weight: 800;
+      color: $darkGrey;
       border-bottom: 4px solid $white;
       &:hover{
-        border-bottom-color: $sec-highlight;
+        border-bottom-color: $prim-highlight;
+        color: $prim-highlight;
       }
     }
     .ui.simple.dropdown.menuItem{
+      .menu.menu.transition.visible{
+        border: none;
+        border-radius: 10px;
+        &:hover{
+          border: none;
+          border-radius: 10px;
+        }
+      }
       .item.products{
         width: 100%;
         @include spaceBetween;
         padding-top: 0;
+        padding-bottom: 2rem !important;
+        border: none;
+        &:hover{
+          border: none;
+          background-color: $white;
+          border-radius: 10px;
+          background: white;
+        }
         .productCategory{
           width: 350px;
           display: flex;
@@ -45,6 +69,7 @@
           justify-content: center;
           border-right: 1px solid $grey;
           margin: 1.5rem 0;
+          margin-bottom: auto;
           &:last-of-type{
             border: none;
           }
@@ -52,22 +77,36 @@
             width: 70%;
             height: 50px;
             @include centreAlign;
-            background-color: $red;
+            background-color: $primary-green;
             color: white;
             border-radius: 6px;
             font-size: 20px;
           }
           .productItem{
-            color: $black;
-            font-size: 14px;
+            color: $darkGrey;
+            font-size: 16px;
             line-height: 20px;
+            font-weight: 600;
+            &:hover{
+              color: $primary-green;
+            }
+          }
+          &:nth-child(2){
+            .header{
+              background-color: $yellow;
+            }
+          }
+          &:nth-child(3){
+            .header{
+              background-color: $blue;
+            }
           }
         }
       }
       &:hover{
         .menu.transition{
-          top: 105%!important;
-          left: -824px;
+          top: 104.4%!important;
+          left: -614px;
           min-width: 1200px;
           border-radius: 10px;
         }

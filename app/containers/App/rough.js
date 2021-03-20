@@ -1,10 +1,9 @@
 import React,{useState , useEffect} from 'react'
-import {Card1} from '../../components/Cards/index'
+import {Card1 , Card3} from '../../components/Cards/index'
 import Video from '../../components/Video/index'
 import {DEFAULT_IMAGE_1} from 'utils/constants'
 import { Icon } from 'semantic-ui-react'
-import { isNull } from 'lodash'
-import de from 'react-intl/locale-data/de'
+import Carrausel from '../../components/Carausel/index'
 function rough() {
   const [triggers, setTriggers] = useState({
     video: false
@@ -47,8 +46,6 @@ function rough() {
     }
   }
   
-  // console.log(!isNull(activeIndex) && videosObj[activeIndex].link)
-  // console.log(activeIndex ,( !isNull(activeIndex) || activeIndex === 0))
   const defineVideoURl = (activeIndex) => {
     if(activeIndex >=0){
       const obj = videosObj[activeIndex]
@@ -60,12 +57,34 @@ function rough() {
   
   return (
     <div className="rough">
-      {/* <div className="demoCard1">
-        <Card1 
+      <div className="demoCarrausel">
+        <Carrausel />
+      </div>
+      <div className="demoCard1">
+        <Card3 
           image={DEFAULT_IMAGE_1}
-          description="This is sample description"
+          description="Consequat duis occaecat est ad voluptate consequat. Irure reprehenderit ullamco qui anim commodo Lorem voluptate ullamco ipsum non. Et do nostrud fugiat elit fugiat occaecat enim exercitation commodo minim. Occaecat consequat duis ipsum aliqua. Adipisicing quis aliqua velit aliqua eu sit ipsum consequat nulla duis enim excepteur aliquip reprehenderit."
+          title="Card 3 Prod"
+          />
+        <Card3 
+          image={DEFAULT_IMAGE_1}
+          description="Proident consequat anim veniam adipisicing. Minim magna in enim ea do cillum culpa. Nostrud do velit dolor elit ullamco ex veniam. Ex ad do nostrud dolore tempor laboris labore mollit. Dolor exercitation quis dolore id nostrud aute. Voluptate ut consectetur non anim nisi exercitation."
+          title="Card 3 Prod"
         />
-      </div> */}
+      </div>
+      <div className="demoCard2">        
+        {/* <Card2
+            title="Title" 
+            image={DEFAULT_IMAGE_1}
+            description="This is sample description"
+          />
+          <Card2
+            title="Title" 
+            image={DEFAULT_IMAGE_1}
+            newCard={true}
+            description="This is sample description"
+          /> */}
+      </div>
       <div className="video">
         <Video 
           videoURl={defineVideoURl(activeIndex)}
