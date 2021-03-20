@@ -6,7 +6,7 @@
   background-color: $primary-green;
   .mapouter{position:relative;text-align:right;height:100px;width:300px;}
   .gmap_canvas {overflow:hidden;background:none!important;height:100px;width:300px;}
-  .info{
+  .info,.location{
     margin-bottom: auto;
     h3{
       font-size: 18px;

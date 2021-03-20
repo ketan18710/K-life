@@ -1,11 +1,12 @@
 @import '../../styles/base/main.scss';
 .carrausel{
   margin-top: 114px;
+  height: 500px;
   position: relative;
   img{
     width: 100%;
-    height: 500px;
-    object-fit: cover;
+    height: 100%;
+    // object-fit: cover;
   }
   .actions{
     width: fit-content;
