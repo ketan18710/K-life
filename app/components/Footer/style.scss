@@ -4,8 +4,8 @@
   justify-content: space-between;
   padding: 1rem 3rem ;
   background-color: $primary-green;
-  .mapouter{position:relative;text-align:right;height:100px;width:300px;}
-  .gmap_canvas {overflow:hidden;background:none!important;height:100px;width:300px;}
+  .mapouter{position:relative;text-align:right;height:200px;width:200px;}
+  .gmap_canvas {overflow:hidden;background:none!important;height:200px;width:200px;}
   .info,.location{
     margin-bottom: auto;
     h3{
@@ -24,5 +24,8 @@
         margin-left: 1rem;
       }
     }
+  }
+  .location{
+    margin-right: 4rem;
   }
 }

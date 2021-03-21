@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import { Dropdown, Image } from 'semantic-ui-react'
 import './style.scss'
 import Logo from '../../images/logo.png'   
+import {redirectToUrl} from 'utils/common'
+import {APP_ROUTES} from 'utils/constants'
 const obj = {
   'Diagnostics' : [
     {
@@ -65,8 +67,8 @@ function Header() {
     <div id="headerBig" className="KL__header">
       <Image wrapped src={Logo}/>
       <div className="KL__header_menu">
-        <p className="menuItem">HOME</p>
-        <p className="menuItem">ABOUT US</p>
+        <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.HOME)}>HOME</p>
+        <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.ABOUT_US)}>ABOUT US</p>
         <Dropdown text="PRODUCTS" className="menuItem" simple>
             <Dropdown.Menu>
               <Dropdown.Item className="products">
@@ -91,8 +93,8 @@ function Header() {
               </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
-        <p className="menuItem">HEALTH INFORMATION</p>
-        <p className="menuItem">STORE</p>
+        <p className="menuItem">MEDIA PRESENCE</p>
+        <p className="menuItem">CONTACT US</p>
       </div>
     </div>
   )

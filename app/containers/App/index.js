@@ -14,11 +14,12 @@ import rough from './rough';
 import { Switch, Route } from 'react-router-dom';
 import './style.scss';
 import HomePage from 'containers/Home/Loadable';
+import AboutUs from 'containers/AboutUs/index';
 // import FeaturePage from 'containers/FeaturePage/Loadable';
 // import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
-
+import {APP_ROUTES} from 'utils/constants';
 // const AppWrapper = styled.div`
 //   max-width: calc(768px + 16px * 2);
 //   margin: 0 auto;
@@ -40,10 +41,11 @@ export default function App() {
       <div className="topGreenBar"></div>
       <Header />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/rough" component={rough} />
+        <Route exact path={APP_ROUTES.HOME} component={HomePage} />
+        <Route exact path={APP_ROUTES.ROUGH} component={rough} />
+        <Route exact path={APP_ROUTES.ABOUT_US} component={AboutUs} />
       </Switch>
       <Footer />
-    </>
+    </>     
   );
 }
