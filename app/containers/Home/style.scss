@@ -1,5 +1,5 @@
 @import '../../styles/base/main.scss';
-.homePge{
+.homePage{
   .KLife__info{
     background-color: $primary-green;
     padding: 3rem 1.5rem 0rem 1.5rem;
@@ -59,19 +59,20 @@
         width: 300px;
         margin-bottom : 2rem;
         cursor: pointer;
-        &:hover{
-          transform: scale(1.1);
-        }
         .image{
           width: 100%;
           max-width: 100%;
           height: 250px;
           @include centreAlign;
+          background-color: $white;
           img{
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            // transform: scaleY(1.15);
+            object-fit: contain;
+            // // transform: scaleY(1.15);
+          }
+          &:hover{
+            transform: scale(1.1);
           }
         }
         .title{
@@ -84,6 +85,14 @@
           background-color: $primary-green;
           @include centreAlign;
           color: $white;
+          // &:hover{
+          //   transform: scale(1.1);
+          // }
+        }
+        &:hover{
+          .title{
+              transform: scale(1.1);
+          }
         }
       }
     }

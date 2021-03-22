@@ -100,12 +100,14 @@
 .Card3{
   width: 350px;
   padding: 1rem;
-  box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
-  -webkit-box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
-  -moz-box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
   height: 550px;
   max-height: 550px;
-  border-radius: 14px;
+  // border-radius: 14px;
+  &:hover{
+    box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
+    -webkit-box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
+    -moz-box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
+  }
   img{
     border-style: none;
     min-width: 100%;

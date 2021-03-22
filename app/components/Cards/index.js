@@ -28,7 +28,6 @@ export const Card2 = (props) => {
 }
 export const Card3 = (props) => {
   const {image,description,title, action} = props
-  console.log(props)
   return(
     <div className="Card3" >
       <img src={image} alt={title + ' image'}/>

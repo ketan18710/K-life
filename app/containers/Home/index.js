@@ -95,7 +95,7 @@ export function Home(props) {
 
   
   return (
-    <div className="homePge">
+    <div className="homePage">
       <Carrausel/>
       <div className="KLife__info">
         <h3 className="title">{kLife.title}</h3>

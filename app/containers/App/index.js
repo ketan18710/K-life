@@ -40,12 +40,14 @@ export default function App() {
       </Helmet>
       <div className="topGreenBar"></div>
       <Header />
-      <Switch>
-        <Route exact path={APP_ROUTES.HOME} component={HomePage} />
-        <Route exact path={APP_ROUTES.ROUGH} component={rough} />
-        <Route exact path={APP_ROUTES.ABOUT_US} component={AboutUs} />
-      </Switch>
-      <Footer />
+      <div id="mainBody">
+        <Switch>
+          <Route exact path={APP_ROUTES.HOME} component={HomePage} />
+          <Route exact path={APP_ROUTES.ROUGH} component={rough} />
+          <Route exact path={APP_ROUTES.ABOUT_US} component={AboutUs} />
+        </Switch>
+        <Footer />
+      </div>
     </>     
   );
 }
