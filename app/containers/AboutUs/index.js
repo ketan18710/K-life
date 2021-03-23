@@ -18,7 +18,7 @@ export function AboutUs() {
           <div className="logo">
             <img src={Logo} alt="K-life logo"/>
           </div>
-          <h3 className="tagline">Innovative. Modern. Personal.</h3>
+          <h3 className="tagline">Innovative . Modern . Personal .</h3>
           We are proud to introduce, K- Life, the medical equipments division of Kannu Impex (India) Pvt. Ltd.
           having a wide selection of diagnostic, preventive healthcare and home healthcare products.
           Our products are designed keeping the same core values in mind with which we want to run the

@@ -98,7 +98,7 @@ export function Home(props) {
     <div className="homePage">
       <Carrausel/>
       <div className="KLife__info">
-        <h3 className="title">{kLife.title}</h3>
+        <h3 className="title">WHY <span>K-LIFE</span></h3>
         <div className="points">
           {
             kLife && kLife.points && kLife.points.map((item=>

@@ -14,12 +14,29 @@
     position: relative;
     &::after{
       content: '';
-      width: 250px;
+      width: 450px;
       height: 20px;
       position: absolute;
       bottom: -20px;
-      left: 300px;
+      left: 225px;
       background-color: $primary-green;
+      @media  (max-width: 1250px) {
+        // display: none;
+        left: 150px;
+      }
+      @media  (max-width: 900px) {
+        // display: none;
+        left: 100px;
+      }
+      @media  (max-width: 650px) {
+        // display: none;
+        left: 65px;
+        width: 350px;
+      }
+      @media  (max-width: 450px) {
+        left: 55px;
+        width: 250px;
+      }
     }
   } 
   .description{
@@ -33,6 +50,9 @@
       font-size: 48px;
       font-weight: 800;
       color: $prim-highlight;
+      @media  (max-width: 450px) {
+        font-size: 40px;
+      }
     }
     min-height: 200px;
     width: 100%;
