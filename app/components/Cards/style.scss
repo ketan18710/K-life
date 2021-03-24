@@ -100,13 +100,14 @@
 .Card3{
   width: 350px;
   padding: 1rem;
-  height: 550px;
-  max-height: 550px;
+  height: 600px;
+  // max-height: 550px;
   // border-radius: 14px;
+  border: 1px solid $darkGrey;
   &:hover{
-    box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
-    -webkit-box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
-    -moz-box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
+    // box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
+    // -webkit-box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
+    // -moz-box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
   }
   img{
     border-style: none;
@@ -122,6 +123,7 @@
     .Card3title{
       font-size: 24px;
       font-weight: 700;
+      margin-top: 2rem;
       color: $prim-highlight;
     }
     .Card3description{
@@ -130,10 +132,11 @@
       font-weight: 500;
       color: $darkGrey;
       margin: 0;
+      margin-top: 2rem;
     }
     button{
       width: 130px;
-      margin-bottom: 2.4rem;
+      // margin-bottom: 2.4rem;
       margin-top: auto;
       height: 40px;
       font-size: 16px;
