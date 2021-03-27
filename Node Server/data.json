@@ -1,6 +1,107 @@
 {
-  "firstName": "kanav",
-  "secondName": "bhatia",
-  "age": "23",
-  "location": "Gurgaon"
+  "carrasusel": ["img1", "img2"],
+  "KLifeInfo": [
+    { "title": "", "image": "src" },
+    { "title": "", "image": "src" }
+  ],
+  "latest": [
+    {
+      "title": "",
+      "image": "src",
+      "description": "",
+      "category_slug": "",
+      "model_id": ""
+    },
+    {
+      "title": "",
+      "image": "src",
+      "description": "",
+      "category_slug": "",
+      "model_id": ""
+    }
+  ],
+  "socialLinks": { "instagram": "", "facebook": "" },
+  "aboutUS": {},
+  "gallery": ["img1", "img2", "img3"],
+  "categories": [
+    {
+      "title": "diagnostics",
+      "subCategories": [
+        {
+          "category_slug": "",
+          "title": "",
+          "description": "",
+          "products": [
+            {
+              "title": "",
+              "isNew": false,
+              "marqueeProduct": "true",
+              "model_id": "",
+              "images": ["img1", "img2", "img3"],
+              "description": "",
+              "features": "",
+              "video": "url",
+              "manuals": [
+                { "title": "", "link": "" },
+                { "title": "", "link": "" }
+              ],
+              "accessories": { "image": "link", "data": "html" }
+            },
+            {
+              "title": "",
+              "isNew": false,
+              "marqueeProduct": "true",
+              "model_id": "",
+              "images": ["img1", "img2", "img3"],
+              "description": "",
+              "features": "",
+              "video": "url",
+              "manuals": [
+                { "title": "", "link": "" },
+                { "title": "", "link": "" }
+              ],
+              "accessories": { "image": "link", "data": "html" }
+            }
+          ]
+        },
+        {
+          "category_slug": "",
+          "title": "",
+          "description": "",
+          "products": [
+            {
+              "title": "",
+              "isNew": false,
+              "marqueeProduct": "true",
+              "model_id": "",
+              "images": ["img1", "img2", "img3"],
+              "description": "",
+              "features": "",
+              "video": "url",
+              "manuals": [
+                { "title": "", "link": "" },
+                { "title": "", "link": "" }
+              ],
+              "accessories": { "image": "link", "data": "html" }
+            },
+            {
+              "title": "",
+              "isNew": false,
+              "marqueeProduct": "true",
+              "model_id": "",
+              "images": ["img1", "img2", "img3"],
+              "description": "",
+              "features": "",
+              "video": "url",
+              "manuals": [
+                { "title": "", "link": "" },
+                { "title": "", "link": "" }
+              ],
+              "accessories": { "image": "link", "data": "html" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
