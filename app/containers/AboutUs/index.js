@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Logo from '../../images/logo.png'
 import './style.scss'
-export function AboutUs() {
+function AboutUs() {
   return (
       <div className="AboutUS">
         <h1 className="header">About Us</h1>

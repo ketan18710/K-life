@@ -41,7 +41,22 @@ export const Card3 = (props) => {
             : 
             description
           }</h4>
-        <button className="btn2__secondary">LEARN MORE</button>
+        <button className="btn2__secondary" onClick={()=>action()}>LEARN MORE</button>
+      </div>
+    </div>
+  )
+}
+export const Card4 = (props) => {
+  const {id,model,image,keyword,description,title, action} = props
+  return(
+    <div className="Card4" >
+      <div className="image">
+        <img src={image} alt={title + ' image'}/>
+      </div>
+      <div className="content">
+        <h3 className="title">{title}</h3>
+        <h5 className="model">{model}</h5>
+        <p className="action" onClick={()=>action()}>SHOW DETAILS</p>
       </div>
     </div>
   )

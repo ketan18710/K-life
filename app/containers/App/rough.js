@@ -1,5 +1,5 @@
 import React,{useState , useEffect} from 'react'
-import {Card1 , Card3} from '../../components/Cards/index'
+import {Card2 , Card3 , Card4} from '../../components/Cards/index'
 import Video from '../../components/Video/index'
 import {DEFAULT_IMAGE_1} from 'utils/constants'
 import { Icon } from 'semantic-ui-react'
@@ -73,7 +73,7 @@ function rough() {
         />
       </div>
       <div className="demoCard2">        
-        {/* <Card2
+        <Card2
             title="Title" 
             image={DEFAULT_IMAGE_1}
             description="This is sample description"
@@ -83,7 +83,7 @@ function rough() {
             image={DEFAULT_IMAGE_1}
             newCard={true}
             description="This is sample description"
-          /> */}
+          />
       </div>
       <div className="video">
         <Video 
@@ -104,6 +104,25 @@ function rough() {
             </div>
           ))
         }
+      </div>
+      <div className="ProductCards">
+        {/* <Card4 
+            id='1'
+            model="N-90"
+            keyword="Compact"
+            title="Product Title"
+            image={DEFAULT_IMAGE_1}
+        /> */}
+        <div className="cardExample1">
+          <div className="image">
+            <img src={DEFAULT_IMAGE_1}/>
+          </div>
+          <div className="content">
+            <h3 className="title">GLUCOMETER</h3>
+            <h5 className="model">GL-22</h5>
+            <p className="action">SHOW DETAILS</p>
+          </div>
+        </div>
       </div>
     </div>
   )

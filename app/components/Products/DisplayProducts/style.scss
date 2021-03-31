@@ -1,0 +1,57 @@
+@import '../../../styles/base/main.scss';
+.displayProducts{
+  background-color: $backgroundGreen;
+  padding: 6rem 3rem ;
+  .title{
+    text-align: center;
+    font-size: 48px;
+    font-weight: 800;
+    color: $prim-highlight;
+  }
+  .description{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: $darkGrey;
+    margin: 2rem 0;
+  }
+  .products{
+    // @include spaceBetween;
+    // gap: 6rem;
+    // padding: 0;
+    width: 100%;
+    // margin:  0;
+    // flex-wrap: wrap;
+    
+    table{
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 6rem;
+      tr{
+        .product{
+          // @include centreAlign;  
+          // @include centreAlign;
+          // width: 25%;
+          margin: 4rem 0;
+          .Card4{
+            margin: 0 auto;
+          }
+          &:first-of-type,&:last-of-type,&:nth-child(2){
+            // width: 300px !important;
+          }
+        }
+      }
+      @media  (max-width: 1100px) {
+        border-spacing: 0;
+        tr{
+          .product{
+            @include centreAlign;
+            &:last-of-type{
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

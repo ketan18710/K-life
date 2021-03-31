@@ -5,6 +5,7 @@
   top: 1rem;
   z-index: 100;
   width: 100%;
+  transition: top 1s ease-in-out;
   .bigHeader{
     height: 100%;
     display: flex;
@@ -150,7 +151,11 @@
         overflow-y: auto;
         z-index: 100000;      
         @media (max-width : 700px) {
-          max-height: unset;
+          // max-height: 100vh;
+          overflow-y: scroll;
+          min-width: 122vw;
+          padding-left: 136px;
+          padding-top: 21rem;
         }
         .dropdownContentInnerWrapper{
           position: relative;
@@ -254,7 +259,7 @@
       // }
     }
   }
-  @media (max-width : 960px) {
+  @media (max-width : 1100px) {
     .bigHeader{
       display: none;
     }

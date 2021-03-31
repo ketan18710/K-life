@@ -11,73 +11,15 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Carrausel from '../../components/Carausel/index'
 import {Card3 as Card} from '../../components/Cards/index'
+import {DEFAULT_IMAGE_1,APP_ROUTES} from 'utils/constants'
+import {redirectToUrl} from 'utils/common'
 import {Icon} from 'semantic-ui-react'
 import './style.scss'
-const DEFAULT_IMAGE_1 = 'http://www.klifecare.com//upload/data/productimg/1070gl2.jpg'
-const kLife = {
-  title : 'WHY K-LIFE?',
-  points : [
-    {
-      image : 'https://image.freepik.com/free-vector/certificate-icon-with-ribbon-medal-flat-design_115464-65.jpg',
-      label : 'Certified Products'
-    },
-    {
-      image : 'https://image.freepik.com/free-vector/certificate-icon-with-ribbon-medal-flat-design_115464-65.jpg',
-      label : 'Experienced Products'
-    },
-    {
-      image : 'https://image.freepik.com/free-vector/certificate-icon-with-ribbon-medal-flat-design_115464-65.jpg',
-      label : 'Latest Prodcuts in healthcare'
-    },
-  ]
-}
-const products = [
-  {
-    image : DEFAULT_IMAGE_1,
-    description:"Consequat duis occaecat est ad voluptate consequat. Irure reprehenderit ullamco qui anim commodo Lorem voluptate ullamco ipsum non. Et do nostrud fugiat elit fugiat occaecat enim exercitation commodo minim. Occaecat consequat duis ipsum aliqua. Adipisicing quis aliqua velit aliqua eu sit ipsum consequat nulla duis enim excepteur aliquip reprehenderit.",
-    title :"Product 1"
-  },
-  {
-    image : DEFAULT_IMAGE_1,
-    description:"Consequat duis occaecat est ad voluptate consequat. Irure reprehenderit ullamco qui anim commodo Lorem voluptate ullamco ipsum non. Et do nostrud fugiat elit fugiat occaecat enim exercitation commodo minim. Occaecat consequat duis ipsum aliqua. Adipisicing quis aliqua velit aliqua eu sit ipsum consequat nulla duis enim excepteur aliquip reprehenderit.",
-    title :"Product 2"
-  },
-  {
-    image : DEFAULT_IMAGE_1,
-    description:"Consequat duis occaecat est ad voluptate consequat. Irure reprehenderit ullamco qui anim commodo Lorem voluptate ullamco ipsum non. Et do nostrud fugiat elit fugiat occaecat enim exercitation commodo minim. Occaecat consequat duis ipsum aliqua. Adipisicing quis aliqua velit aliqua eu sit ipsum consequat nulla duis enim excepteur aliquip reprehenderit.",
-    title :"Product 3"
-  },
-  {
-    image : DEFAULT_IMAGE_1,
-    description:"Consequat duis occaecat est ad voluptate consequat. Irure reprehenderit ullamco qui anim commodo Lorem voluptate ullamco ipsum non. Et do nostrud fugiat elit fugiat occaecat enim exercitation commodo minim. Occaecat consequat duis ipsum aliqua. Adipisicing quis aliqua velit aliqua eu sit ipsum consequat nulla duis enim excepteur aliquip reprehenderit.",
-    title :"Product 4"
-  },
-  {
-    image : DEFAULT_IMAGE_1,
-    description:"Consequat duis occaecat est ad voluptate consequat. Irure reprehenderit ullamco qui anim commodo Lorem voluptate ullamco ipsum non. Et do nostrud fugiat elit fugiat occaecat enim exercitation commodo minim. Occaecat consequat duis ipsum aliqua. Adipisicing quis aliqua velit aliqua eu sit ipsum consequat nulla duis enim excepteur aliquip reprehenderit.",
-    title :"Product 5"
-  },
-  {
-    image : DEFAULT_IMAGE_1,
-    description:"Consequat duis occaecat est ad voluptate consequat. Irure reprehenderit ullamco qui anim commodo Lorem voluptate ullamco ipsum non. Et do nostrud fugiat elit fugiat occaecat enim exercitation commodo minim. Occaecat consequat duis ipsum aliqua. Adipisicing quis aliqua velit aliqua eu sit ipsum consequat nulla duis enim excepteur aliquip reprehenderit.",
-    title :"Product 6"
-  },
-]
-const margueeProducts = [
-  {
-    image : DEFAULT_IMAGE_1,
-    title :"Analysers"
-  },
-  {
-    image : DEFAULT_IMAGE_1,
-    title :"Home Healthcare Devices"
-  },
-  {
-    image : DEFAULT_IMAGE_1,
-    title :"Medical Equipment"
-  },
-]
-export function Home(props) {
+
+
+const Home=(props)=>{
+  console.log(props,'propssssss')
+  const {KLifeInfo : kLife,margueeProducts,latest :products } = props
   const [firstProdIndex, setFirstProdIndex] = useState(0)
   const index1 = firstProdIndex
   const index2 = products && products.length && ((firstProdIndex + 1 )% products.length)
@@ -101,7 +43,7 @@ export function Home(props) {
         <h3 className="title">WHY <span>K-LIFE</span></h3>
         <div className="points">
           {
-            kLife && kLife.points && kLife.points.map((item=>
+            kLife  && kLife.map((item=>
               <div className="point">
                 <img src={item.image}/>
                 <h4 className="label">{item.label}</h4>
@@ -136,6 +78,7 @@ export function Home(props) {
                 title={products[index1].title}
                 image={products[index1].image}
                 description={products[index1].description}
+                action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(products[index1].category_slug,products[index1].sub_category_slug,products[index1].model_id))}
               />
             </div>
             <div className="product">
@@ -143,6 +86,7 @@ export function Home(props) {
                 title={products[index2].title}
                 image={products[index2].image}
                 description={products[index2].description}
+                action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(products[index1].category_slug,products[index1].sub_category_slug,products[index1].model_id))}
               />
             </div>
             <div className="product">
@@ -150,6 +94,7 @@ export function Home(props) {
                 title={products[index3].title}
                 image={products[index3].image}
                 description={products[index3].description}
+                action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(products[index1].category_slug,products[index1].sub_category_slug,products[index1].model_id))}
               />
             </div>
             <Icon onClick={()=>goToNext()} size='big' name="chevron right"/>

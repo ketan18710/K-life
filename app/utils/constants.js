@@ -7,5 +7,9 @@ export const APP_ROUTES = {
   HOME : '/',
   ROUGH : '/rough',
   ABOUT_US : '/about-us',
-
+  PRODUCT_CATEGORY : '/products/:category_slug/:sub_category_slug',
+  PRODUCT_CATEGORY_ALIAS : '/products/',
+  PRODUCT : '/products/:category_slug/:sub_category_slug/:model_id',
+  PRODUCT_ALIAS : (category_slug,sub_category_slug,model_id)=>`/products/${category_slug}/${sub_category_slug}/${model_id}`,
+  GALLERY : '/gallery'
 }

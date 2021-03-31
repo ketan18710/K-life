@@ -6,6 +6,7 @@
   background-color: $primary-green;
   flex-wrap: wrap;
   gap: 2rem;
+  margin-top: auto;
   @media  (max-width: 625px) {
     // display: none;
     justify-content: center;

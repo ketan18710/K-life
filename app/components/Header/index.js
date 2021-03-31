@@ -6,7 +6,7 @@ import CloseIcon from './close.svg'
 import DropDownIcon from './dropdownIcon.svg'
 import {redirectToUrl} from 'utils/common'
 import {APP_ROUTES} from 'utils/constants'
-
+import ContactUs from '../ContactUs/index'
 // var lastScrollTop = 0;
 // document.addEventListener('scroll',(e)=>{
 //   // debugger  
@@ -20,8 +20,8 @@ import {APP_ROUTES} from 'utils/constants'
 //       header.classList.remove('hidden_header')
 //    }
 // })
-function Header() {
-  
+function Header(props) {
+  const {categories} = props
   var header = ''
   var mainBody = ''
   useEffect(() => { 
@@ -29,7 +29,7 @@ function Header() {
     header = document.getElementById('headerBig');
     mainBody = document.getElementById('mainBody');
   }, [])
-  
+  const [contactModal, setContactModal] = useState(false)
 var doc = document.documentElement;
 var w = window;
 
@@ -65,8 +65,10 @@ var checkScroll = function() {
 const toggleHeader = function(direction, curScroll) {
   
   const dropdownContent =  header && header.querySelector('.dropdownContent')
-  const dropdownContentVisible = dropdownContent && dropdownContent.style.display !== 'none' ? true : false
-  if(!dropdownContentVisible){
+  const dropdownContentNotVisible = dropdownContent && dropdownContent.style.display !== 'none' ? true : false
+  
+  // debugger
+  if(dropdownContentNotVisible){
     if (direction === 2 && curScroll > 52) { 
       
       //replace 52 with the height of your header in px
@@ -147,6 +149,7 @@ const toggleHeader = function(direction, curScroll) {
   }
   
   return (
+    <>
     <div id="headerBig" className="KL__header">
       <div className="bigHeader">
         <Image wrapped src={Logo}/>
@@ -163,12 +166,12 @@ const toggleHeader = function(direction, curScroll) {
                       <p className="productItem">ACTIVITY MONITOR</p>
                     </div> */}
                     {
-                      Object.keys(obj).map(key=>(
+                      categories.map(category=>(
                         <div className="productCategory">
-                          <h3 className="header">{(key.toUpperCase())}</h3>
+                          <h3 className="header">{category.title}</h3>
                           {
-                            obj[key].map(item=>(
-                              <p className="productItem">{item.name}</p>
+                            category["subCategories"].map(item=>(
+                              <p className="productItem" onClick={()=>redirectToUrl(`${APP_ROUTES.PRODUCT_CATEGORY_ALIAS}${category.category_slug}/${item.sub_category_slug}`)}>{item.title}</p>
                             ))
                           }
                         </div>
@@ -177,8 +180,8 @@ const toggleHeader = function(direction, curScroll) {
                 </Dropdown.Item>
               </Dropdown.Menu>
           </Dropdown>
-          <p className="menuItem">MEDIA PRESENCE</p>
-          <p className="menuItem">CONTACT US</p>
+          <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.GALLERY)}>GALLERY</p>
+          <p className="menuItem" onClick={()=>setContactModal(true)}>CONTACT US</p>
         </div>
       </div>
       <div className="smallHeader">
@@ -214,6 +217,8 @@ const toggleHeader = function(direction, curScroll) {
         </div>
       </div>
     </div>
+      <ContactUs open={contactModal} CloseIcon={CloseIcon} close={()=>setContactModal(false)} />
+    </>
   )
 }
 
