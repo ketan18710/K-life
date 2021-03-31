@@ -193,18 +193,18 @@ const toggleHeader = function(direction, curScroll) {
               <div className="closeIcon" onClick={()=>openHeader(false)}><img src={CloseIcon} alt="Close dropdown"/></div>
               <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.HOME)}>HOME</p>
               <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.ABOUT_US)}>ABOUT US</p>
-              <p className="menuItem">MEDIA PRESENCE</p>
-              <p className="menuItem">CONTACT US</p>
+              <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.GALLERY)}>GALLERY</p>
+              <p className="menuItem" onClick={()=>setContactModal(true)}>CONTACT US</p>
               <p className="menuItem prodcutsMenu">
                 Products
                 <div className="products">
                   {
-                    Object.keys(obj).map(key=>(
+                    categories.map(category=>(
                       <div className="productCategory">
-                        <h3 className="header">{(key.toUpperCase())}</h3>
+                        <h3 className="header">{category.title}</h3>
                         {
-                          obj[key].map(item=>(
-                            <p className="productItem">{item.name}</p>
+                          category["subCategories"].map(item=>(
+                            <p className="productItem"  onClick={()=>redirectToUrl(`${APP_ROUTES.PRODUCT_CATEGORY_ALIAS}${category.category_slug}/${item.sub_category_slug}`)}>{item.title}</p>
                           ))
                         }
                       </div>
