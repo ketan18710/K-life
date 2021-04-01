@@ -151,6 +151,9 @@
     .title{
       width: 100%;
       color: $prim-highlight;
+      @media  (max-width: 400px) {
+        font-size: 38px;
+      }
     }
     .content{
       @include centreAlign;
