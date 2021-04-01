@@ -157,7 +157,7 @@
         @media (max-width : 700px) {
           // max-height: 100vh;
           overflow-y: auto;
-          min-width: 110vw;
+          min-width: 100vw;
           min-height: 850px;
           padding: 0;
           // padding-top: 21rem;
@@ -173,6 +173,7 @@
             position: absolute;
             top: 42px;
             right: 90px;
+            z-index: 110000;      
             cursor: pointer;
             img{
               height: 40px;
