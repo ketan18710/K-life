@@ -123,14 +123,17 @@ function ProductDetail(props) {
           <div className="data" dangerouslySetInnerHTML={{ __html: accessories.data }} ></div>
         </div>
       </div>
-      <div className="products">
-        <h3 className="title">Similar Products</h3>
-        <table>
-          {
-            createTable()
-          }
-        </table>
-      </div>
+      {
+        categoryProducts && categoryProducts.length >1 &&
+        <div className="products">
+          <h3 className="title">Similar Products</h3>
+          <table>
+            {
+              createTable()
+            }
+          </table>
+        </div>
+      }
     </div>
   )
 }

@@ -121,15 +121,19 @@
     // display: none;
   }
   .smallHeader{
-    @include spaceBetween;
+    @include centreAlign;
     height: 100%;
     display: none;
     // display: flex;
     background: white;
     // border: 1px solid black;
     padding: 0 3rem;
+    .ui.image{
+      margin-right: auto;
+    }
     .dropdown{
       position: relative;
+      margin-right: auto;
       label{
         cursor: pointer;
       }
@@ -137,7 +141,7 @@
         display: none;
         width: fit-content;
         padding: 2rem;
-        right: -44px;
+        left: -50px;
         top: -33px;
         background-color: white;
         border-radius: 6px;
@@ -147,23 +151,34 @@
         position: absolute;
         max-width: 100vw;
         min-width: 100vw;
-        max-height: 600px;
+        max-height: 650px;
         overflow-y: auto;
         z-index: 100000;      
         @media (max-width : 700px) {
           // max-height: 100vh;
-          overflow-y: scroll;
-          min-width: 122vw;
-          padding-left: 136px;
-          padding-top: 21rem;
+          overflow-y: auto;
+          min-width: 110vw;
+          min-height: 850px;
+          padding: 0;
+          // padding-top: 21rem;
         }
         .dropdownContentInnerWrapper{
           position: relative;
+          max-height: 650px;
+          @media (max-width : 700px) {
+            max-height: unset;
+            min-height: 850px;
+          }
           .closeIcon{
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 42px;
+            right: 90px;
             cursor: pointer;
+            img{
+              height: 40px;
+              width: 40px;
+              object-fit: cover;
+            }
             @media (max-width : 700px) {
               top: 42px;
             }
@@ -171,10 +186,9 @@
           .menuItem{
             @include centreAlign;
             margin: 0 auto;
-            width: 20%;
             min-width: 160px;
             height: 100%;
-            font-size: 18px;
+            font-size:28px;
             font-weight: 800;
             color: $darkGrey;
             border-bottom: 4px solid $white;
@@ -195,7 +209,7 @@
               text-align: center;
               max-height: 300px;
               gap: 3rem;        
-              @media (max-width : 700px) {
+              @media (max-width : 960px) {
                 flex-direction: column;  
                 // margin-top: 13rem;
                 max-height: unset;
@@ -207,8 +221,13 @@
                 flex-direction: column;
                 margin: 1.5rem 0;
                 margin-bottom: auto;
-                padding: 0 1rem;
+                padding: 0 ;
                 flex-wrap: wrap;
+                @media (max-width : 700px) {
+                  &:last-of-type{
+                    padding-bottom: 3rem;
+                  }
+                }
                 .header{
                   // width: 70%;
                   height: 50px;
@@ -216,14 +235,15 @@
                   background-color: $primary-green;
                   color: white;
                   border-radius: 6px;
-                  font-size: 20px;
+                  font-size: 26px;
+                  font-weight: 800;
                   padding: 0 1rem;
                 }
                 .productItem{
                   color: $darkGrey;
-                  font-size: 16px;
+                  font-size: 22px;
                   line-height: 20px;
-                  font-weight: 600;
+                  font-weight: 800;
                   &:hover{
                     color: $primary-green;
                   }

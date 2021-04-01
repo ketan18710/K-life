@@ -185,7 +185,6 @@ const toggleHeader = function(direction, curScroll) {
         </div>
       </div>
       <div className="smallHeader">
-        <Image wrapped src={Logo}/>
         <div className="dropdown">
           <label htmlFor="header dropdown menu" onMouseEnter={()=>openHeader(true)} onClick={()=>openHeader(true)}><img src={DropDownIcon} alt="dropdown icon"/></label>
           <div className="dropdownContent">
@@ -196,7 +195,7 @@ const toggleHeader = function(direction, curScroll) {
               <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.GALLERY)}>GALLERY</p>
               <p className="menuItem" onClick={()=>setContactModal(true)}>CONTACT US</p>
               <p className="menuItem prodcutsMenu">
-                Products
+                PRODUCTS
                 <div className="products">
                   {
                     categories.map(category=>(
@@ -215,6 +214,7 @@ const toggleHeader = function(direction, curScroll) {
             </div>
           </div>
         </div>
+        <Image wrapped src={Logo}/>
       </div>
     </div>
       <ContactUs open={contactModal} CloseIcon={CloseIcon} close={()=>setContactModal(false)} />
