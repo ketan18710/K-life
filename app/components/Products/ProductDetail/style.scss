@@ -8,6 +8,9 @@
     font-weight: 800;
     text-align: center;
     margin: 3rem 0;
+    @media  (max-width: 400px) {
+      font-size: 42px;
+    }
   }
   .description{
     color: $darkGrey;
