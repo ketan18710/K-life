@@ -536,6 +536,9 @@ export default function App() {
       <div className="topGreenBar"></div>
       <Header {...config}/>
       <div id="mainBody">
+        <div id="K_LIFE_loader">
+          <div class="loader"></div>
+        </div>
         <Switch>
           <Route exact path={APP_ROUTES.HOME} component={()=><HomePage {...config} />} />
           <Route exact path={APP_ROUTES.ROUGH} component={rough} />
@@ -545,9 +548,6 @@ export default function App() {
           <Route exact path={APP_ROUTES.GALLERY} component={()=><Gallery {...config} />} />
         </Switch>
         <Footer />
-      <div id="K_LIFE_loader">
-        <div class="loader"></div>
-      </div>
       </div> 
     </>     
   );
