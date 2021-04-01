@@ -30,10 +30,10 @@ border-radius: 4px;
 #mainBody{
   margin-top: 114px;
   #K_LIFE_loader{
-    display: none;
     width: 100%;
     min-height: 400px;
     @include centreAlign;
+    display: none;
     .loader  {
       animation: rotate 1s infinite;  
       height: 50px;
@@ -109,7 +109,7 @@ border-radius: 4px;
   }
   &:empty{
     #K_LIFE_loader{
-      display: block;
+      display: flex;
     }
   }
 }
