@@ -545,6 +545,9 @@ export default function App() {
           <Route exact path={APP_ROUTES.GALLERY} component={()=><Gallery {...config} />} />
         </Switch>
         <Footer />
+      <div id="K_LIFE_loader">
+        <div class="loader"></div>
+      </div>
       </div> 
     </>     
   );
