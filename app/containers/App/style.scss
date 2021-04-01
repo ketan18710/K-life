@@ -151,6 +151,7 @@ border-radius: 4px;
 }
 #app{
   @media  (max-width: 400px) {
-    max-width: 97vw;
+    max-width: 98vw;
+    margin: 0 auto;
   }
 }
