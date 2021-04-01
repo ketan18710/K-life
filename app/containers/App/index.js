@@ -536,17 +536,19 @@ export default function App() {
       <div className="topGreenBar"></div>
       <Header {...config}/>
       <div id="mainBody">
-        <div id="K_LIFE_loader">
-          <div class="loader"></div>
+        <div id="mainBodyInnerWrapper">
+          <div id="K_LIFE_loader">
+            <div class="loader"></div>
+          </div>
+          <Switch>
+            <Route exact path={APP_ROUTES.HOME} component={()=><HomePage {...config} />} />
+            <Route exact path={APP_ROUTES.ROUGH} component={rough} />
+            <Route exact path={APP_ROUTES.PRODUCT_CATEGORY} component={()=><Products {...config} productDetail={false}/>} />
+            <Route exact path={APP_ROUTES.PRODUCT} component={()=><Products {...config} productDetail={true}/>} />
+            <Route exact path={APP_ROUTES.ABOUT_US} component={AboutUs} />
+            <Route exact path={APP_ROUTES.GALLERY} component={()=><Gallery {...config} />} />
+          </Switch>
         </div>
-        <Switch>
-          <Route exact path={APP_ROUTES.HOME} component={()=><HomePage {...config} />} />
-          <Route exact path={APP_ROUTES.ROUGH} component={rough} />
-          <Route exact path={APP_ROUTES.PRODUCT_CATEGORY} component={()=><Products {...config} productDetail={false}/>} />
-          <Route exact path={APP_ROUTES.PRODUCT} component={()=><Products {...config} productDetail={true}/>} />
-          <Route exact path={APP_ROUTES.ABOUT_US} component={AboutUs} />
-          <Route exact path={APP_ROUTES.GALLERY} component={()=><Gallery {...config} />} />
-        </Switch>
         <Footer />
       </div> 
     </>     
