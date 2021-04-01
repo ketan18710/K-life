@@ -157,8 +157,8 @@
         @media (max-width : 700px) {
           // max-height: 100vh;
           overflow-y: auto;
-          min-width: 100vw;
-          min-height: 100vh;
+          min-width: 104vw;
+          min-height: 95vh;
           padding: 0;
           // padding-top: 21rem;
         }
@@ -167,7 +167,7 @@
           max-height: 650px;
           @media (max-width : 700px) {
             max-height: unset;
-            min-height: 100vh;
+            min-height: 95vh;
           }
           .closeIcon{
             position: absolute;
@@ -176,8 +176,8 @@
             z-index: 110000;      
             cursor: pointer;
             img{
-              height: 40px;
-              width: 40px;
+              height: 30px;
+              width: 30px;
               object-fit: cover;
             }
             @media (max-width : 700px) {
