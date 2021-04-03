@@ -247,9 +247,11 @@
         }
         @media  (max-width: 1000px) {
           display: none;
-          &:first-of-type{
-            display: block;
-          }
+        }
+      }
+      @media  (max-width: 1000px) {
+        #latestProductsFirst{
+          display: block;
         }
       }
     }
