@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import './style.scss'
 import {DEFAULT_IMAGE_1,APP_ROUTES} from 'utils/constants'
 import {redirectToUrl} from 'utils/common'
@@ -43,7 +43,6 @@ function DisplayProducts(props) {
       return rows
     }
   }
-  
   return (
     <div className="displayProducts">
       <h3 className="title">B.P. Monitor</h3>

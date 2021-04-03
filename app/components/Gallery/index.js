@@ -1,8 +1,6 @@
 import React from 'react'
-import { Image } from 'semantic-ui-react'
 import './style.scss'
 function Gallery(props) {
-  console.log('galleryProps',props)
   const {gallery : images} = props
   const createTable = () => {
     let rows =[] ;

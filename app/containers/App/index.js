@@ -6,10 +6,9 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import 'semantic-ui-css/semantic.min.css';
 import rough from './rough';
 import { Switch, Route } from 'react-router-dom';
 // import { useLocation } from 'react-router-dom';
@@ -525,6 +524,25 @@ export default function App() {
       },
     ]
   }
+  
+  const mainBodyObserverCallback = () => {
+    const mainBodyInnerWrapper = document.getElementById('mainBodyInnerWrapper')
+    const innerHtml = mainBodyInnerWrapper.innerHTML
+    const loader  = document.getElementById('K_LIFE_loader')
+    if(!innerHtml){
+      loader.style.display = "flex"
+    }else{  
+      loader.style.display = "none"
+    }
+  }
+  useEffect(() => {
+    const targetNode = document.getElementById('mainBodyInnerWrapper');
+    const observerConfig = { attributes:false, childList:true, subtree: true };
+    const observer = new MutationObserver(mainBodyObserverCallback);
+    observer.observe(targetNode, observerConfig);
+  }, [document.getElementById('mainBodyInnerWrapper')])
+
+
   return (
     <>
       <Helmet
@@ -536,10 +554,10 @@ export default function App() {
       <div className="topGreenBar"></div>
       <Header {...config}/>
       <div id="mainBody">
+        <div id="K_LIFE_loader">
+          <div class="loader"></div>
+        </div>
         <div id="mainBodyInnerWrapper">
-          <div id="K_LIFE_loader">
-            <div class="loader"></div>
-          </div>
           <Switch>
             <Route exact path={APP_ROUTES.HOME} component={()=><HomePage {...config} />} />
             <Route exact path={APP_ROUTES.ROUGH} component={rough} />

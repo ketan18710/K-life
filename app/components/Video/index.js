@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react'
-import { Modal, Icon } from 'semantic-ui-react'
+import Icon from '../Icon/index'
+import CloseIcon from '../../images/icons/close.svg'
 import './style.scss'
 
 function Video(props) {
@@ -15,8 +16,13 @@ function Video(props) {
         className="showProductVideoModal"
       >
         <div className="header">
-          <div className="cancel" onClick={()=>close()}>
-            <Icon name="cancel" />
+          <div className="cancel" >
+            <Icon
+                mainIcon={CloseIcon}
+                hoverIcon={CloseIcon}
+                alt="Close Icon"
+                action={()=>close()}
+            />
           </div>
         </div>
         <div className="content">

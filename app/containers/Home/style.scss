@@ -1,5 +1,6 @@
 @import '../../styles/base/main.scss';
 .homePage{
+  transition: all 1s linear;
   .carrausel{
     @media (max-width : 890px) {
       // object-fit: contain;
@@ -197,19 +198,19 @@
         gap: 2rem;
       }
 
-      i{
+      .icon{
         margin-top: auto;
         position: absolute;
         margin-bottom: auto;
-        color: $darkGrey;
-        &:hover{
-          color: $prim-highlight;
-        }
-        top: 250px;
+        top: 300px;
         left: 0;
+        img{
+          width: 50px;
+          height: 50px;
+        }
         &:last-of-type{
           left: unset;
-          top: 250px;
+          top: 300px;
           right: 0;
         }
         @media  (max-width: 1100px) {
@@ -217,12 +218,25 @@
         }
       }
       .product{
+        .Card3{
+          -webkit-transition: opacity 10s ease-in-out;
+            -moz-transition: opacity 10s ease-in-out;
+            -ms-transition: opacity 10s ease-in-out;
+            -o-transition: opacity 10s ease-in-out;
+            transition: opacity 10s ease-in-out;
+        }
         @media  (max-width: 1280px) and (min-width : 1000px) {
           // &:last-of-type{
           //   display: none;
           // }
           .Card3{
             width: 300px;
+          
+            -webkit-transition: opacity 10s ease-in-out;
+            -moz-transition: opacity 10s ease-in-out;
+            -ms-transition: opacity 10s ease-in-out;
+            -o-transition: opacity 10s ease-in-out;
+            transition: opacity 10s ease-in-out;
             .Card3content{
               height: 365px;
               .Card3description{

@@ -9,7 +9,6 @@ function ContactUs(props) {
     message : ''
   }
   const [form, setForm] = useState(initialState)
-  console.log(form)
   const handleInputChange = (key,val) => {
     setForm(
       {...form,

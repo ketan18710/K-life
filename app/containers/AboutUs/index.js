@@ -4,13 +4,24 @@
  *
  */
 
-import React from 'react';
+import React,{useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Logo from '../../images/logo.png'
 import './style.scss'
 function AboutUs() {
+  useEffect(() => { 
+    const AboutUS = document.getElementsByClassName('AboutUS');
+    [].forEach.call(AboutUS, a => {
+      a.style.opacity = 0;
+    });
+    setTimeout(() => {
+      [].forEach.call(AboutUS, a => {
+        a.style.opacity = 1;
+      });
+    }, 550);
+   }, [])
   return (
       <div className="AboutUS">
         <h1 className="header">About Us</h1>

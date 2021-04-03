@@ -1,6 +1,7 @@
 @import '../../styles/base/main.scss';
 .gallery{
   padding: 4rem 2rem;
+  background-color: $backgroundGreen;
   .title{
     color: $prim-highlight;
     font-size: 48px;
@@ -10,8 +11,20 @@
   table{
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 6rem;
+    border-spacing: 62px 6rem;
     tr{
+      // @include centreAlign;
+      .image{
+        
+        img{
+          box-shadow: 0 0 8px rgba(85, 85, 85, 50%);
+          margin: 0 auto;
+          width: 400px;
+          height: 400px;
+          object-fit: contain;
+          border-radius: 14px;
+        }
+      }
     }
     @media  (max-width: 1100px) {
       border-spacing: 0;

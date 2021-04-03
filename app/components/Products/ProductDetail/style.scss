@@ -5,7 +5,7 @@
   .title{
     color: $prim-highlight;
     font-size: 48px;
-    font-weight: 800;
+    font-weight: 700;
     text-align: center;
     margin: 3rem 0;
     @media  (max-width: 400px) {
@@ -87,7 +87,7 @@
         margin-bottom: 0.5rem;
         font-size: 22px;
         line-height: 24px;
-        font-weight: 800;
+        font-weight: 600;
         padding-left: 1rem;
         &::marker{
           content: '✔';
@@ -119,7 +119,7 @@
       min-width: 150px;
       width: unset;
       height: 40px;
-      font-weight: 800;
+      font-weight: 600;
       padding: 0.5rem 0.7rem;
       text-decoration: none;
       display: flex;
@@ -179,7 +179,7 @@
           margin-bottom: 0.5rem;
           font-size: 22px;
           line-height: 24px;
-          font-weight: 800;
+          font-weight: 600;
           padding-left: 1rem;
           &::marker{
             content: '✔';

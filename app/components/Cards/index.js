@@ -1,5 +1,4 @@
 import React from 'react'
-import {Image } from 'semantic-ui-react'
 import './style.scss'
 export function Card1(props) {
   const {image,description} = props

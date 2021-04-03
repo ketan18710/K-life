@@ -1,18 +1,32 @@
 import React from 'react'
-import {Icon} from 'semantic-ui-react'
+import Icon from '../Icon/index'
 import './style.scss'
+import MailIcon from '../../images/icons/mail.svg'
+import Logo from '../../images/logo.png'
 function Footer() {
   return (
     <div className="Footer">
       <div className="info">
-        <h3>K-Life</h3>
-        <h4>Suncity Trade Tower, 412, Sector 21,</h4>
+        <img src={Logo} alt="K-life Logo"/>
+        <h4>Address : Suite 412</h4>
+        <h4>Suncity Trade Tower,</h4>
+        <h4> Sector 21,</h4>
         <h4> Gurugram, Haryana 122016</h4>
         <h4>
-          <Icon name="mail"/><a href = "mailto: info@klifecare.com ">info@klifecare.com </a>
+          <Icon
+            mainIcon={MailIcon}
+            hoverIcon={MailIcon}
+            alt="Mail Icon"
+          />
+          <a href = "mailto: info@klifecare.com ">info@klifecare.com </a>
         </h4>
         <h4>
-          <Icon name="mail"/><a href = "mailto: pranay@klifecare.com ">pranay@klifecare.com </a>
+          <Icon
+            mainIcon={MailIcon}
+            hoverIcon={MailIcon}
+            alt="Mail Icon"
+          />
+          <a href = "mailto: pranay@klifecare.com ">pranay@klifecare.com </a>
         </h4>
       </div>
       <div className="location">

@@ -2,7 +2,6 @@ import React,{useState , useEffect} from 'react'
 import {Card2 , Card3 , Card4} from '../../components/Cards/index'
 import Video from '../../components/Video/index'
 import {DEFAULT_IMAGE_1} from 'utils/constants'
-import { Icon } from 'semantic-ui-react'
 import Carrausel from '../../components/Carausel/index'
 function rough() {
   const [triggers, setTriggers] = useState({
@@ -99,7 +98,7 @@ function rough() {
         {
           videosObj.map((item , index)=>(
             <div className="poster" style={{backgroundImage : `url(${item.poster})`}} onClick={()=>{setActiveIndex(index) ;setTriggers({...triggers,video : true})}}>
-              <Icon name="play circle outline"/>
+              {/* <Icon name="play circle outline"/> */}
               <p>{item.title}</p>
             </div>
           ))
