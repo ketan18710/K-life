@@ -108,7 +108,7 @@ export default function App() {
     ],
     "socialLinks": { "instagram": "", "facebook": "" },
     "aboutUS": {},
-    "gallery": [IMG1, IMG2, IMG1,IMG2,IMG1, IMG2, IMG1,IMG2,IMG1, IMG2, IMG1,IMG2],
+    "gallery": [IMG1, IMG2, IMG1,IMG2,IMG1, IMG2, IMG1,IMG2,IMG1, IMG2, IMG1],
     "categories": [
       {
         "title": "diagnostics",

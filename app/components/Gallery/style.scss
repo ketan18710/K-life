@@ -2,11 +2,17 @@
 .gallery{
   padding: 4rem 2rem;
   background-color: $backgroundGreen;
+  @media  (max-width: 260px){
+    padding: 0;
+  }
   .title{
     color: $prim-highlight;
     font-size: 48px;
     font-weight: 800;
     text-align: center;
+    @media  (max-width: 300px){
+      font-size: 42px;
+    }
   }
   table{
     width: 100%;
@@ -34,6 +40,63 @@
           &:last-of-type{
             margin-bottom: 0;
           }
+        }
+      }
+    }
+  }
+  .images{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap : 4rem 2rem;
+    @media  (max-width: 1050px){
+      gap : 4rem 1rem;
+    }
+    @media  (max-width: 960px){
+      grid-template-columns: auto;
+    }
+    .polaroid{
+      width: 350px;
+      height: 400px;
+      background-color: $marine-blue;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      margin: 0 auto;
+      @media  (max-width: 1200px){
+        width: 290px;
+      }
+      @media  (max-width: 400px){
+        height: 300px;
+      }
+      @media  (max-width: 350px){
+        width: 250px;
+      }
+      @media  (max-width: 300px){
+        width: 220px;
+      }
+      img{
+        width: 90%;
+        height: 80%;
+        object-fit: cover;
+        margin: 25px auto 0 auto;
+        // background-color: $white;
+      }
+      .clip{
+        position: absolute;
+        top: -15px;
+        width: 100px;
+        height: 30px;
+        left: 125px;
+        background-color: $blue;
+        @media  (max-width: 1200px){
+          left: 100px;
+        }
+        @media  (max-width: 350px){
+          left: 60px;  
+
+        }
+        @media  (max-width: 300px){
+
         }
       }
     }

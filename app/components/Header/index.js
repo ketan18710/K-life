@@ -12,6 +12,7 @@ function Header(props) {
   const [contactModal, setContactModal] = useState(false)
   const {categories} = props
   const {category_slug,sub_category_slug,model_id} = useParams();
+  const pathname = window.location.pathname
   var header = ''
   var mainBody = ''
   useEffect(() => { 
@@ -20,13 +21,19 @@ function Header(props) {
     mainBody = document.getElementById('mainBody');
   }, [])
   useEffect(() => {
-    const body = document.body
-    if(contactModal){
-      body.style.overflowY = 'hidden'
-    }else{
-      body.style.overflowY = 'auto'
-    }
-  }, [contactModal])
+    const closeicon = document.getElementsByClassName('closeIcon');
+    [].forEach.call(closeicon, a => {
+      a.click()
+    });
+  }, [window.location.pathname,contactModal])
+  // useEffect(() => {
+  //   const body = document.body
+  //   if(contactModal){
+  //     body.style.overflowY = 'hidden'
+  //   }else{
+  //     body.style.overflowY = 'auto'
+  //   }
+  // }, [contactModal])
 var doc = document.documentElement;
 var w = window;
 
@@ -61,9 +68,7 @@ var checkScroll = function() {
 const toggleHeader = function(direction, curScroll) {
   
   const dropdownContent =  header && header.querySelector('.dropdownContent')
-  const dropdownContentNotVisible = dropdownContent && dropdownContent.style.display !== 'none' ? true : false
-  
-  // debugger
+  const dropdownContentNotVisible = dropdownContent && dropdownContent.style.display === 'none' ? true : false
   if(dropdownContentNotVisible){
     if (direction === 2 && curScroll > 52) { 
       

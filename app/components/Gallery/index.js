@@ -37,11 +37,22 @@ function Gallery(props) {
   return (
     <div className="gallery">
       <h3 className="title">GALLERY</h3>
-      <table>
+      <div className="images">
+      {
+        images.map(image=>
+          <div className="polaroid">
+            <img src={image}/>
+            <div className="clip"></div>
+          </div>
+        )
+      }
+
+      </div>
+      {/* <table>
         {
           createTable()
         }
-      </table>
+      </table> */}
     </div>
   )
 }

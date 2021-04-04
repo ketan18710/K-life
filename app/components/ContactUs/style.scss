@@ -11,6 +11,16 @@
   .modal{
     min-width: 300px;
     min-height: 200px;
+    max-height: 80vh;
+    overflow-y: auto;
+    &::-webkit-scrollbar{
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $grey;
+      outline: none;
+      border-radius: 4px;
+    }
     @include spaceBetween;
     padding: 1rem 4rem ;
     background-color: $white;
@@ -52,12 +62,8 @@
           color: $darkGrey;
         }
         @media  (max-width: 600px){
-          min-width: 250px;
-          max-width: 80vw;
-        }
-        @media  (max-width: 300px){
-          min-width: 200px;
-          max-width: 80vw;
+          min-width: 150px;
+          max-width: 100%;  
         }
       }
       textarea{
@@ -65,6 +71,8 @@
       }
       button{
         margin-left: auto;
+        height: 40px;
+        font-size: 22px;
       }
     }
     img{
@@ -76,10 +84,12 @@
     }
   }
   
-  // @media  (max-width: 300px){
-  //   width: 143vw;
-  //   .modal{
-  //     max-width: 350px;
-  //   }
-  // }
+  @media  (max-width: 500px){
+    // width: 143vw;
+    .modal{
+      padding: 1rem 2rem;
+      min-width: 200px;
+      max-width: 250px;
+    }
+  }
 }

@@ -62,9 +62,11 @@ const Home=(props)=>{
       let elapsed_time = end_time - start_time;
       if (Math.abs(move_x) > min_horizontal_move && Math.abs(move_y) < max_vertical_move && elapsed_time < within_ms) {
           if (move_x < 0) {
-              alert("left");
+              // alert("left");
+              goToNext()
           } else {
-              alert("right");
+              // alert("right");
+              goToPrevious()
           }
       }
   }
@@ -170,7 +172,7 @@ const Home=(props)=>{
           <div className="actionDots">
             {
               products && products.length && products.map(((product,index)=>
-                <div className={index === firstProdIndex ? 'active dot' : 'dot'} onClick={()=>changeFirstProdIndex(index)}></div>  
+                <div className={index === firstProdIndex ? 'active dot' : 'dot'} onClick={()=>{setLatestProductCardsOpacity(false); changeFirstProdIndex(index)}}></div>  
               ))
             }
           </div>
