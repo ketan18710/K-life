@@ -20,6 +20,7 @@ function ProductDetail(props) {
   const index1 = firstProdIndex
   const index2 = images && images.length>=2 && ((firstProdIndex + 1 )% images.length)
   const index3 = images && images.length>=3 && ((firstProdIndex + 2 )% images.length)
+  const products = categoryProducts.filter(product=>product.model_id !=model_id)
   const goToNext = () => {
     const length  = images.length 
     if(firstProdIndex +1 < length){
@@ -42,7 +43,6 @@ function ProductDetail(props) {
     let rows =[] ;
     let row = [];
     let columns = 0;
-    const products = categoryProducts.filter(product=>product.model_id !=model_id)
     {
       // row = 0
       products.map((product,index)=>
@@ -127,11 +127,20 @@ function ProductDetail(props) {
         categoryProducts && categoryProducts.length >1 &&
         <div className="products">
           <h3 className="title">Similar Products</h3>
-          <table>
+          <div className="productList">
             {
-              createTable()
+              categoryProducts.map((product,index)=>
+              <div className="product">
+                <Card
+                  image={product.images.length>=0 ?  product.images[0] : DEFAULT_IMAGE_1}
+                  title={product.title}
+                  model={product.model_id}
+                  action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(category_slug,sub_category_slug,product.model_id))}
+                />
+              </div>
+              )
             }
-          </table>
+          </div>
         </div>
       }
     </div>

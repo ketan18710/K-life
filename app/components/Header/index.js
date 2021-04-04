@@ -92,9 +92,7 @@ const toggleHeader = function(direction, curScroll) {
     const dropdownContent = headerOuterVar && headerOuterVar.querySelector('.dropdownContent')
     if(dropdownContent){
       if(open){
-        setTimeout(() => {
-          dropdownContent.style.display = 'flex';
-        }, 300);
+        dropdownContent.style.display = 'flex';
       }else{
         dropdownContent.style.display = 'none';
       }
@@ -164,7 +162,7 @@ const toggleHeader = function(direction, curScroll) {
             </div>
           </div>
         </div>
-        <div className="image">
+        <div  onClick={()=>redirectToUrl(APP_ROUTES.HOME)} className="image">
           <img  src={Logo} alt="K_life_logo"/>
         </div>
       </div>
