@@ -98,7 +98,21 @@ const toggleHeader = function(direction, curScroll) {
       }
     }
   }
-  
+  const mainBodyObserverCallback = () => {
+    const dropdownContent =  header && header.querySelector('.dropdownContent')
+    const dropdownContentVisible = dropdownContent && dropdownContent.style.display !== 'none' ? true : false
+    if(dropdownContentVisible){
+      document.body.style.overflowY = 'hidden'
+    }else{
+      document.body.style.overflowY = 'auto'
+    }
+  }
+  useEffect(() => {
+    const targetNode = header && header.querySelector('.dropdownContent')
+    const observerConfig = { attributes:true, childList:true, subtree: true };
+    const observer = new MutationObserver(mainBodyObserverCallback);
+    observer.observe(targetNode, observerConfig);
+  }, [header && header.querySelector('.dropdownContent')])
   return (
     <>
     <div id="headerBig" className="KL__header">
