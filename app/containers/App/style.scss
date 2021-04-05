@@ -30,6 +30,7 @@ border-radius: 4px;
 }
 #mainBody{
   margin-top: 114px;
+  // transition: margin-top 1s linear;
   #K_LIFE_loader{
     width: 100%;
     min-height: 400px;
@@ -112,7 +113,7 @@ border-radius: 4px;
   }
 }
 #mainBody.noHeader{
-  margin-top: 10px;
+  // margin-top: 10px;
 }
 
 
