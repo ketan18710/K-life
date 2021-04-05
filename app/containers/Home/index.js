@@ -86,7 +86,7 @@ const Home=(props)=>{
       if(opacity){
         setTimeout(() => {
           a.style.opacity = 1;
-        }, 100);
+        }, 200);
       }else{
         a.style.opacity = 0.3;
       }
