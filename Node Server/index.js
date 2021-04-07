@@ -4,6 +4,7 @@ const fs = require('fs');
 const data = require('./data.json');
 const app = express();
 const port = process.env.port || 3000;
+const upload = require('./file-upload');
 
 app.use(express.json());
 
@@ -41,6 +42,12 @@ app.post('/push', (req, res) => {
     });
     res.send('Data Fetched Successfully');
   } else res.send('Incorrect data format');
+});
+
+/* Where image is the name of the property sent from angular via the Form Data and the 1 is the max number of files to upload */
+app.post('/api/v1/upload', upload.array('image', 1), (req, res) => {
+  /* This will be th 8e response sent from the backend to the frontend */
+  res.send({ image: req.file });
 });
 
 app.get('*', (req, res) => {
