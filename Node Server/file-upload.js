@@ -5,9 +5,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 aws.config.update({
-  secretAccessKey: '/lnon2Fr8UkaFjtjJZ64YspGN9kTTC39lOI90hme',
-  accessKeyId: 'AKIASMWGVJMRWUJEM5LE',
-  region: 'ap-south-1',
+  secretAccessKey: process.env.secretAccessKey,
+  accessKeyId: process.env.accessKeyId,
+  region: process.env.region,
 });
 
 const s3 = new aws.S3();

@@ -5,8 +5,11 @@ const data = require('./data.json');
 const app = express();
 const port = process.env.port || 3000;
 const upload = require('./file-upload');
+const database = require('./database');
 
 app.use(express.json());
+
+// app.use(auth);
 
 app.get('/api', (req, res) => {
   //   console.log(os.arch());
