@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './style.scss'
 function ContactUs(props) {
   const {open,close,CloseIcon} = props
@@ -16,23 +16,33 @@ function ContactUs(props) {
       }
     )
   }
-  
+  // useEffect(() => {
+  //   let body = document.body.style
+  //   debugger
+  //   if(open){
+  //     body.overflowY = 'hidden'
+  //   }else{
+  //     body.overflowY = 'auto'
+  //   }
+  // }, [open])
   return (
     open &&
     <div className="contactUsWrapper">
       <div className="modal">
         <h3 className="title">Send us a message</h3>
-        <div className="field">
-          <label htmlFor="Input Name ">Name</label>
-          <input value={form.name} onChange={(e)=>handleInputChange('name',e.target.value)} type="text" placeholder="Enter your name"/>
+        <div className="formGroup">
+          <div className="field">
+            <label htmlFor="Input Name ">Name</label>
+            <input value={form.name} onChange={(e)=>handleInputChange('name',e.target.value)} type="text" placeholder="Enter your name"/>
+          </div>
+          <div className="field">
+            <label htmlFor="Input Number">Phone Number</label>
+            <input value={form.phone_no} onChange={(e)=>handleInputChange('phone_no',e.target.value)}  type="text" placeholder="Enter your phone number"/>
+          </div>
         </div>
         <div className="field">
           <label htmlFor="Input Email">Email</label>
           <input value={form.email} onChange={(e)=>handleInputChange('email',e.target.value)}  type="email" placeholder="Enter your email Id"/>
-        </div>
-        <div className="field">
-          <label htmlFor="Input Number">Phone Number</label>
-          <input value={form.phone_no} onChange={(e)=>handleInputChange('phone_no',e.target.value)}  type="text" placeholder="Enter your phone number"/>
         </div>
         <div className="field">
           <label htmlFor="Input Number">Your Message</label>

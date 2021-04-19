@@ -1,45 +1,60 @@
 /*
- * AppReducer
  *
- * The reducer takes care of our data. Using actions, we can
- * update our application state. To add a new action,
- * add it to the switch statement in the reducer function
+ * App reducer
  *
  */
-
 import produce from 'immer';
-import { LOAD_REPOS_SUCCESS, LOAD_REPOS, LOAD_REPOS_ERROR } from './constants';
-
-// The initial state of the App
+import { DEFAULT_ACTION,GET_DATA, SET_DATA,SAVE_DATA,SAVE_DATA_RESULT, SAVE_IMAGE, SAVE_IMAGE_RESULT } from './constants';
+import { API_CONSTANTS } from '../../utils/constants';
 export const initialState = {
-  loading: false,
-  error: false,
-  currentUser: false,
-  userData: {
-    repositories: false,
+  config : {
+    status : API_CONSTANTS.init,
+    data : null
   },
+  save : {
+    status : API_CONSTANTS.init,
+    data : null
+  },
+  imageUpload : {
+    status : API_CONSTANTS.init,
+    data : null
+  },
+  
 };
 
 /* eslint-disable default-case, no-param-reassign */
-const appReducer = (state = initialState, action) =>
+const appReducer = (state = initialState,  { type, payload }) =>
   produce(state, draft => {
-    switch (action.type) {
-      case LOAD_REPOS:
-        draft.loading = true;
-        draft.error = false;
-        draft.userData.repositories = false;
+    switch (type) {
+      case DEFAULT_ACTION:
         break;
-
-      case LOAD_REPOS_SUCCESS:
-        draft.userData.repositories = action.repos;
-        draft.loading = false;
-        draft.currentUser = action.username;
+      case GET_DATA : {
+        draft.config.status = API_CONSTANTS.loading
         break;
-
-      case LOAD_REPOS_ERROR:
-        draft.error = action.error;
-        draft.loading = false;
+      }
+      case SET_DATA : {
+        draft.config.status = payload.status;
+        draft.config.data = payload.data;
         break;
+      }
+      case SAVE_DATA : {
+        draft.save.status = API_CONSTANTS.loading
+        break;
+      }
+      case SAVE_DATA_RESULT : {
+        draft.save.status = payload.status;
+        draft.save.data = payload.data;
+        break;
+      }
+      case SAVE_IMAGE : {
+        draft.imageUpload.status = API_CONSTANTS.loading
+        break;
+      }
+      case SAVE_IMAGE_RESULT : {
+        draft.imageUpload.status = payload.status;
+        draft.imageUpload.data = payload.data;
+        break;
+      }
     }
   });
 

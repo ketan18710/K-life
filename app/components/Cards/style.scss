@@ -103,13 +103,16 @@
   height: 600px;
   // max-height: 550px;
   // border-radius: 14px;
-  border: 1px solid $darkGrey;
+  // border: 1px solid $darkGrey;
+  box-shadow: 3px 3px 5px #555555, -3px -3px 5px #fefefa;
+  border-radius: 8px;
+  position: relative;
   &:hover{
     // box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
     // -webkit-box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
     // -moz-box-shadow: -2px 3px 10px 0px rgba(54,69,79,0.52);
   }
-  img{
+  .hero{
     border-style: none;
     min-width: 100%;
     max-width: 100%;
@@ -142,6 +145,22 @@
       height: 40px;
       font-size: 16px;
       font-weight: 700;
+    }
+  }
+  .closeIcon{
+    padding: 2px;
+    object-fit: contain;
+    position: absolute;
+    top: -13px;
+    right: 0;
+    border: 1px solid $darkGrey;
+    cursor: pointer;
+    border-radius: 50%;
+    display: none;
+  }
+  &:hover{
+    .closeIcon{
+      display: block;
     }
   }
 }

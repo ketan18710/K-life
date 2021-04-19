@@ -14,14 +14,16 @@
     // border: 1px solid black;
     @include spaceBetween;
     padding: 0 3rem;
-    image{
-      // width: 30%;
-      min-width: 100px;
+    .image{
+      width: 130px;
       @include centreAlign;
       justify-content: flex-start;
+      height: 90px;
+      cursor: pointer;
       img{
-       max-height: 48px;
-       object-fit: contain;
+        width: 130px;
+        height: 90px;
+        object-fit: cover;
       }
     }
     .KL__header_menu{
@@ -36,9 +38,9 @@
         width: 20%;
         min-width: 160px;
         height: 100%;
-        font-size: 18px;
+        font-size: 20px;
         cursor: pointer;
-        font-weight: 600;
+        font-weight: $wt-reg;
         color: $darkGrey;
         border-bottom: 4px solid $white;
         &:hover{
@@ -48,6 +50,7 @@
       }
       .menuItem.prodcutsMenu{
         position: relative;
+        cursor: auto;
         .dropdownMenu{
           position: absolute;
           top: 100px;
@@ -90,17 +93,18 @@
                 width: 70%;
                 height: 50px;
                 @include centreAlign;
-                background-color: $primary-green;
+                background-color: $blue;
                 color: white;
                 border-radius: 6px;
                 font-size: 22px;
+                font-weight: $wt-reg;
               }
               .productItem{
                 color: $darkGrey;
                 font-size: 18px;
                 line-height: 20px;
                 cursor: pointer;
-                font-weight: 600;
+                font-weight: $wt-bold;
                 &:hover{
                   color: $primary-green;
                 }
@@ -112,7 +116,7 @@
               }
               &:nth-child(3){
                 .header{
-                  background-color: $blue;
+                  background-color: $red;
                 }
               }
             }
@@ -120,7 +124,7 @@
         }
         &:hover{
           .dropdownMenu{
-            display: block;
+            // display: block;
           }
 
         }
@@ -185,6 +189,7 @@
             cursor: pointer;
             img{
               height: 30px;
+              cursor: pointer;
               width: 30px;
               object-fit: cover;
             }
@@ -199,7 +204,7 @@
             min-width: 160px;
             height: 100%;
             font-size:28px;
-            font-weight: 800;
+            font-weight: $wt-reg;
             color: $darkGrey;
             border-bottom: 4px solid $white;
             &:hover{
@@ -213,6 +218,7 @@
           .menuItem.prodcutsMenu{
             flex-direction: column;
             width: 100%;
+            cursor: auto;
             .products{
               display: flex;
               @include centreAlign;
@@ -235,7 +241,7 @@
                 padding: 0 ;
                 flex-wrap: wrap;
                 @media (max-width : 960px) {
-                  margin-top: 0;
+                  margin: 7px 0;
                   &:last-of-type{
                     padding-bottom: 3rem;
                   }
@@ -248,14 +254,16 @@
                   color: white;
                   border-radius: 6px;
                   font-size: 26px;
-                  font-weight: 800;
+                  font-weight: $wt-reg;
                   padding: 0 1rem;
+                  margin: 14px 0;
                 }
                 .productItem{
                   color: $darkGrey;
                   font-size: 22px;
                   line-height: 20px;
-                  font-weight: 800;
+                  font-weight: $wt-bold;
+                  margin: 7px 0;
                   &:hover{
                     color: $primary-green;
                   }

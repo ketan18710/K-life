@@ -1,6 +1,7 @@
 @import '../../../styles/base/main.scss';
 .productDetail{
   background-color: $backgroundGreen;
+  background-image: linear-gradient(to bottom right, rgba(0, 160, 161, 0.2), rgba(0, 160, 161, 0.4));
   padding: 4rem 0;
   .title{
     color: $prim-highlight;

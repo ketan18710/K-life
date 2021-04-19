@@ -12,7 +12,7 @@ import { compose } from 'redux';
 import Carrausel from '../../components/Carausel/index'
 import Icon from '../../components/Icon/index'
 import {Card3 as Card} from '../../components/Cards/index'
-import {DEFAULT_IMAGE_1,APP_ROUTES} from 'utils/constants'
+import {DEFAULT_IMAGE_1,APP_ROUTES,NO_IMAGE} from 'utils/constants'
 import {redirectToUrl} from 'utils/common'
 import LeftIcon from '../../images/icons/left.svg'
 import LeftIconHover from '../../images/icons/left_hover_blue.svg'
@@ -22,7 +22,9 @@ import './style.scss'
 
 
 const Home=(props)=>{
-  const {KLifeInfo : kLife,margueeProducts,latest :products } = props
+  const {KLifeInfo : kLife,margueeProducts,latest :products,carrousel } = props
+  console.table(props)
+  console.log(props)
   const [firstProdIndex, setFirstProdIndex] = useState(0)
   const index1 = firstProdIndex
   const index2 = products && products.length && ((firstProdIndex + 1 )% products.length)
@@ -71,8 +73,9 @@ const Home=(props)=>{
       }
   }
   useEffect(() => {
-    const innerHtml = document.getElementById("latestProductsFirst").innerHTML
-    if(innerHtml){
+    let x = document.getElementById("latestProductsFirst")
+    if(x){
+      let innerHTML = x.innerHTML 
       var content = document.getElementById("latestProductsFirst");
       content.addEventListener('touchstart', touch_start);
       content.addEventListener('touchend', touch_end);
@@ -81,16 +84,18 @@ const Home=(props)=>{
 
   const setLatestProductCardsOpacity = (opacity) => {
     const latestProducts = document.querySelector('.latestProducts')
-    const cards = latestProducts.querySelectorAll('.product');
-    [].forEach.call(cards, a => {
-      if(opacity){
-        setTimeout(() => {
-          a.style.opacity = 1;
-        }, 200);
-      }else{
-        a.style.opacity = 0.3;
-      }
-    });
+    if(latestProducts){
+      const cards = latestProducts.querySelectorAll('.product');
+      [].forEach.call(cards, a => {
+        if(opacity){
+          setTimeout(() => {
+            a.style.opacity = 1;
+          }, 200);
+        }else{
+          a.style.opacity = 0.1;
+        }
+      });
+    }
   }
   useEffect(() => {
     setLatestProductCardsOpacity(true)
@@ -98,7 +103,7 @@ const Home=(props)=>{
 
   return (
     <div className="homePage">
-      <Carrausel/>
+      <Carrausel carrousel={carrousel}/>
       <div className="KLife__info">
         <h3 className="title">WHY <span>K-LIFE</span></h3>
         <div className="points">
@@ -128,55 +133,67 @@ const Home=(props)=>{
           }
         </div>
       </div>
-      <div className="latestProducts">
-          <h3 className="title">LATEST PRODUCTS</h3>
-          <h4 className="description">Our Newest Launches</h4>
-          <div className="products">
-            <Icon
-                mainIcon={LeftIcon}
-                hoverIcon={LeftIconHover}
-                alt="Show previous product Icon"
-                action={goToPrevious}
-            />
-            <div className="product" id="latestProductsFirst">
-              <Card 
-                title={products[index1].title}
-                image={products[index1].image}
-                description={products[index1].description}
-                action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(products[index1].category_slug,products[index1].sub_category_slug,products[index1].model_id))}
+      {
+        products && products.length>0 &&
+        <div className="latestProducts">
+            <h3 className="title">LATEST PRODUCTS</h3>
+            <h4 className="description">Our Newest Launches</h4>
+            <div className="products">
+              <Icon
+                  mainIcon={LeftIcon}
+                  hoverIcon={LeftIconHover}
+                  alt="Show previous product Icon"
+                  action={goToPrevious}
+              />
+              {
+                products && products.length >0 &&
+                <div className="product" id="latestProductsFirst">
+                  <Card 
+                    title={products[index1].title}
+                    image={products[index1].image ? products[index1].image : NO_IMAGE}
+                    description={products[index1].description}
+                    action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(products[index1].category_slug,products[index1].sub_category_slug,products[index1].model_id))}
+                  />
+                </div>
+              }
+              {
+                products && products.length >1 &&
+                <div className="product">
+                  <Card 
+                    title={products[index2].title}
+                    image={products[index2].image ? products[index2].image : NO_IMAGE}
+                    description={products[index2].description}
+                    action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(products[index1].category_slug,products[index1].sub_category_slug,products[index1].model_id))}
+                  />
+                </div>
+              }
+              {
+                products && products.length >2 &&
+                <div className="product">
+                  <Card 
+                    title={products[index3].title}
+                    image={products[index3].image ? products[index3].image : NO_IMAGE}
+                    description={products[index3].description}
+                    action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(products[index1].category_slug,products[index1].sub_category_slug,products[index1].model_id))}
+                  />
+                </div>
+              }
+              <Icon
+                  mainIcon={RightIcon}
+                  hoverIcon={RightIconHover}
+                  alt="Show next product Icon"
+                  action={goToNext}
               />
             </div>
-            <div className="product">
-              <Card 
-                title={products[index2].title}
-                image={products[index2].image}
-                description={products[index2].description}
-                action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(products[index1].category_slug,products[index1].sub_category_slug,products[index1].model_id))}
-              />
+            <div className="actionDots">
+              {
+                products && products.length > 0 && products.map(((product,index)=>
+                  <div className={index === firstProdIndex ? 'active dot' : 'dot'} onClick={()=>{setLatestProductCardsOpacity(false); changeFirstProdIndex(index)}}></div>  
+                ))
+              }
             </div>
-            <div className="product">
-              <Card 
-                title={products[index3].title}
-                image={products[index3].image}
-                description={products[index3].description}
-                action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(products[index1].category_slug,products[index1].sub_category_slug,products[index1].model_id))}
-              />
-            </div>
-            <Icon
-                mainIcon={RightIcon}
-                hoverIcon={RightIconHover}
-                alt="Show next product Icon"
-                action={goToNext}
-            />
-          </div>
-          <div className="actionDots">
-            {
-              products && products.length && products.map(((product,index)=>
-                <div className={index === firstProdIndex ? 'active dot' : 'dot'} onClick={()=>{setLatestProductCardsOpacity(false); changeFirstProdIndex(index)}}></div>  
-              ))
-            }
-          </div>
-      </div>
+        </div>
+      }
     </div>
   )
 }

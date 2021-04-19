@@ -1,5 +1,7 @@
 import React from 'react'
 import './style.scss'
+import CloseIcon from '../../images/icons/close.svg'
+import { NO_IMAGE } from '../../utils/constants'
 export function Card1(props) {
   const {image,description} = props
   return (
@@ -26,10 +28,10 @@ export const Card2 = (props) => {
   )
 }
 export const Card3 = (props) => {
-  const {image,description,title, action} = props
+  const {image,description,title, action ,actionText,close} = props
   return(
     <div className="Card3" >
-      <img src={image} alt={title + ' image'}/>
+      <img className="hero" src={image} alt={title + ' image'}/>
       <div className="Card3content">
         <h3 className="Card3title"> {title}</h3>
         <h4 title={description} className="Card3description">
@@ -40,17 +42,22 @@ export const Card3 = (props) => {
             : 
             description
           }</h4>
-        <button className="btn2__secondary" onClick={()=>action()}>LEARN MORE</button>
+        <button className="btn1__secondary" onClick={()=>action()}>{actionText ? actionText : 'LEARN MORE'}</button>
       </div>
+      {
+        close &&
+        <img src={CloseIcon} alt="close icon" onClick={()=>close()} className="closeIcon"/>
+      }
     </div>
   )
 }
 export const Card4 = (props) => {
   const {id,model,image,keyword,description,title, action} = props
+  console.table(props)
   return(
     <div className="Card4" >
       <div className="image">
-        <img src={image} alt={title + ' image'}/>
+        <img src={image ? image : NO_IMAGE} alt={title + ' image'}/>
       </div>
       <div className="content">
         <h3 className="title">{title}</h3>

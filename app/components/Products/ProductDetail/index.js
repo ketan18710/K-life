@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './style.scss'
 import {DEFAULT_IMAGE_1,DEFAULT_IMAGE_2} from 'utils/constants'
 import LEFT_ICON from '../../../images/icons/left.svg'
@@ -6,6 +6,9 @@ import RIGHT_ICON from '../../../images/icons/right.svg'
 import DOWNLOAD_ICON from './download.svg'
 import DOWNLOAD_ICON_HOVER from './download_hover.svg'
 import {Card4 as Card} from 'components/Cards/index'
+import { NO_IMAGE } from '../../../utils/constants'
+import { redirectToUrl } from '../../../utils/common'
+
 function ProductDetail(props) {
   const {title, images, description, features, video, manuals,categoryProducts ,model_id ,accessories} = props
   // const images = [
@@ -15,12 +18,20 @@ function ProductDetail(props) {
   //   DEFAULT_IMAGE_2,
   //   DEFAULT_IMAGE_1
   // ]
-  const [activeImage, setActiveImage] = useState(images[0])
+  const [activeImage, setActiveImage] = useState(NO_IMAGE)
   const [firstProdIndex, setFirstProdIndex] = useState(0)
   const index1 = firstProdIndex
   const index2 = images && images.length>=2 && ((firstProdIndex + 1 )% images.length)
   const index3 = images && images.length>=3 && ((firstProdIndex + 2 )% images.length)
-  const products = categoryProducts.filter(product=>product.model_id !=model_id)
+  useEffect(() => {
+    // debugger
+    if(!model_id){
+      redirectToUrl('/error404')
+    }
+    if(images && images.length>0 ){
+      setActiveImage(images[0])
+    }
+  }, [])
   const goToNext = () => {
     const length  = images.length 
     if(firstProdIndex +1 < length){
@@ -39,43 +50,7 @@ function ProductDetail(props) {
       setFirstProdIndex(x)
     }
   }
-  const createTable = () => {
-    let rows =[] ;
-    let row = [];
-    let columns = 0;
-    {
-      // row = 0
-      products.map((product,index)=>
-        { 
-          row.push(
-            <td className="product">
-              <Card
-                image={product.images.length>=0 ?  product.images[0] : DEFAULT_IMAGE_1}
-                title={product.title}
-                model={product.model_id}
-                action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(category_slug,sub_category_slug,product.model_id))}
-              />
-            </td>
-          )
-          if(columns === 2 || index === (products.length-1)){
-            // debugger
-            rows.push(
-              <tr>
-                {
-                  row
-                }
-              </tr>
-            )
-            columns =0;
-            row = []
-          }else{
-            columns ++
-          }
-        }
-      )
-      return rows
-    }
-  }
+  console.log(props,'features')
   return (
     <div className="productDetail">
       <h3 className="title">{title}</h3>
@@ -108,8 +83,8 @@ function ProductDetail(props) {
       <div className="manuals">
         {
           manuals && manuals.length>0 &&manuals.map(manual=>(
-            <a href={DEFAULT_IMAGE_1} download target="_blank" className="btn1__secondary">
-              {manual.title} 
+            <a href={manual.link && manual.link} download target="_blank" className="btn1__secondary">
+              {manual.title && manual.title} 
               <img className="normal" src={DOWNLOAD_ICON}/>
               <img className="hover" src={DOWNLOAD_ICON_HOVER}/>
             </a>
@@ -119,8 +94,8 @@ function ProductDetail(props) {
       <div className="accessories">
         <h3 className="title">ACCESSORIES</h3>
         <div className="content">
-          <img src={accessories.image} alt=""/>
-          <div className="data" dangerouslySetInnerHTML={{ __html: accessories.data }} ></div>
+          <img src={accessories && accessories.image ? accessories.image : NO_IMAGE} alt=""/>
+          <div className="data" dangerouslySetInnerHTML={{ __html: accessories && accessories.data  ? accessories.data : ''}} ></div>
         </div>
       </div>
       {
@@ -132,7 +107,7 @@ function ProductDetail(props) {
               categoryProducts.map((product,index)=>
               <div className="product">
                 <Card
-                  image={product.images.length>=0 ?  product.images[0] : DEFAULT_IMAGE_1}
+                  image={product.images.length>=0 ?  product.images[0] : NO_IMAGE}
                   title={product.title}
                   model={product.model_id}
                   action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(category_slug,sub_category_slug,product.model_id))}

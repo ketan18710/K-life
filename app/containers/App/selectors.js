@@ -1,49 +1,39 @@
-/**
- * The global state selectors
- */
-
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
-const selectGlobal = state => state.global || initialState;
+/**
+ * Direct selector to the app state domain
+ */
 
-const selectRouter = state => state.router;
+const selectAppDomain = state => state.app || initialState;
 
-const makeSelectCurrentUser = () =>
+/**
+ * Other specific selectors
+ */
+
+/**
+ * Default selector used by App
+ */
+
+const makeSelectApp = () =>
   createSelector(
-    selectGlobal,
-    globalState => globalState.currentUser,
+    selectAppDomain,
+    substate => substate,
   );
-
-const makeSelectLoading = () =>
+const  makeSelectConfig = () =>
   createSelector(
-    selectGlobal,
-    globalState => globalState.loading,
+    selectAppDomain,
+    substate => substate.config,
   );
-
-const makeSelectError = () =>
+const  makeSelectSave = () =>
   createSelector(
-    selectGlobal,
-    globalState => globalState.error,
+    selectAppDomain,
+    substate => substate.save,
   );
-
-const makeSelectRepos = () =>
+const  makeSelectImageUpload = () =>
   createSelector(
-    selectGlobal,
-    globalState => globalState.userData.repositories,
+    selectAppDomain,
+    substate => substate.imageUpload,
   );
-
-const makeSelectLocation = () =>
-  createSelector(
-    selectRouter,
-    routerState => routerState.location,
-  );
-
-export {
-  selectGlobal,
-  makeSelectCurrentUser,
-  makeSelectLoading,
-  makeSelectError,
-  makeSelectRepos,
-  makeSelectLocation,
-};
+export default makeSelectApp;
+export { selectAppDomain,makeSelectConfig,makeSelectSave,makeSelectImageUpload };

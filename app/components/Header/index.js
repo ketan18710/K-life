@@ -13,18 +13,21 @@ function Header(props) {
   const {categories} = props
   const {category_slug,sub_category_slug,model_id} = useParams();
   const pathname = window.location.pathname
+  let bigProductDropDown = ''
   var header = ''
   var mainBody = ''
   useEffect(() => { 
     window.addEventListener('scroll', checkScroll);
-    header = document.getElementById('headerBig');
-    mainBody = document.getElementById('mainBody');
   }, [])
   useEffect(() => {
     const closeicon = document.getElementsByClassName('closeIcon');
     [].forEach.call(closeicon, a => {
       a.click()
     });
+    if(document.querySelector('.bigHeader') ){
+      var x =  document.querySelector('.bigHeader').style
+      document.getElementById('homeMenuItem').focus()
+    }
   }, [window.location.pathname,contactModal])
   // useEffect(() => {
   //   const body = document.body
@@ -66,7 +69,8 @@ var checkScroll = function() {
 };
 
 const toggleHeader = function(direction, curScroll) {
-  
+  header = document.getElementById('headerBig');
+  mainBody = document.getElementById('mainBody');
   const dropdownContent =  header && header.querySelector('.dropdownContent')
   const dropdownContentNotVisible = dropdownContent && dropdownContent.style.display === 'none' ? true : false
   if(dropdownContentNotVisible){
@@ -86,6 +90,18 @@ const toggleHeader = function(direction, curScroll) {
   }
 };
 
+  const showHideBigDropDown = (show) => {
+    bigProductDropDown = document.getElementById('bigProductDropDown')
+    if(show){
+      bigProductDropDown.style.display = 'block'
+    }else{
+      bigProductDropDown.style.display = 'none'
+    }
+  }
+  useEffect(() => {
+    showHideBigDropDown(false)
+  }, [pathname])
+  
   const openHeader = (open = true) => {
     // debugger
     const headerOuterVar = document.getElementById('headerBig')
@@ -109,26 +125,28 @@ const toggleHeader = function(direction, curScroll) {
   }
   useEffect(() => {
     const targetNode = header && header.querySelector('.dropdownContent')
-    const observerConfig = { attributes:true, childList:true, subtree: true };
-    const observer = new MutationObserver(mainBodyObserverCallback);
-    observer.observe(targetNode, observerConfig);
+    if(targetNode){
+      const observerConfig = { attributes:true, childList:true, subtree: true };
+      const observer = new MutationObserver(mainBodyObserverCallback);
+      observer.observe(targetNode, observerConfig);
+    }
   }, [header && header.querySelector('.dropdownContent')])
   return (
     <>
     <div id="headerBig" className="KL__header">
       <div className="bigHeader">
         <div className="image">
-        <img  src={Logo} alt="K_life_logo"/>
+        <img  onClick={()=>redirectToUrl(APP_ROUTES.HOME)} src={Logo} alt="K_life_logo"/>
         </div>
         <div className="KL__header_menu">
-          <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.HOME)}>HOME</p>
+          <p className="menuItem" id="homeMenuItem" onClick={()=>redirectToUrl(APP_ROUTES.HOME)}>HOME</p>
           <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.ABOUT_US)}>ABOUT US</p>
-          <p className="menuItem prodcutsMenu">
+          <p onMouseEnter={()=>showHideBigDropDown(true)} onMouseLeave={()=>showHideBigDropDown(false)} className="menuItem prodcutsMenu">
               PRODUCTS
-              <div className="dropdownMenu">
+              <div id="bigProductDropDown" className="dropdownMenu">
                 <div className="products">
                   {
-                    categories.map(category=>(
+                    categories && categories.map(category=>(
                       <div className="productCategory">
                         <h3 className="header">{category.title}</h3>
                         {
@@ -160,7 +178,7 @@ const toggleHeader = function(direction, curScroll) {
                 PRODUCTS
                 <div className="products">
                   {
-                    categories.map(category=>(
+                    categories && categories.map(category=>(
                       <div className="productCategory">
                         <h3 className="header">{category.title}</h3>
                         {
@@ -177,7 +195,7 @@ const toggleHeader = function(direction, curScroll) {
           </div>
         </div>
         <div  onClick={()=>redirectToUrl(APP_ROUTES.HOME)} className="image">
-          <img  src={Logo} alt="K_life_logo"/>
+          <img  onClick={()=>redirectToUrl(APP_ROUTES.HOME)}  src={Logo} alt="K_life_logo"/>
         </div>
       </div>
     </div>

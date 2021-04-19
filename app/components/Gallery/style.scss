@@ -1,14 +1,15 @@
 @import '../../styles/base/main.scss';
 .gallery{
   padding: 4rem 2rem;
-  background-color: $backgroundGreen;
+  // background-color: $backgroundGreen;
+  background-image: linear-gradient(to bottom right, rgba(0, 160, 161, 0.2), rgba(0, 160, 161, 0.25));
   @media  (max-width: 260px){
     padding: 0;
   }
   .title{
     color: $prim-highlight;
     font-size: 48px;
-    font-weight: 800;
+    font-weight: $wt-extraBold;
     text-align: center;
     @media  (max-width: 300px){
       font-size: 42px;

@@ -1,6 +1,7 @@
 @import '../../../styles/base/main.scss';
 .displayProducts{
   background-color: $backgroundGreen;
+  background-image: linear-gradient(to bottom right, rgba(0, 160, 161, 0.2), rgba(0, 160, 161, 0.4));
   padding: 6rem 3rem ;
   @media (max-width : 1000px){
     padding: 6rem 0rem ;
@@ -8,15 +9,16 @@
   .title{
     text-align: center;
     font-size: 48px;
-    font-weight: 800;
+    font-weight: $wt-reg;
     color: $prim-highlight;
   }
   .description{
     text-align: center;
     font-size: 24px;
-    font-weight: 600;
+    font-weight: $wt-bold;
     color: $darkGrey;
     margin: 2rem 0;
+    padding: 0 0.5rem;
   }
   .products{
     width: 100%;

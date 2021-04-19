@@ -3,7 +3,7 @@ const os = require('os');
 const fs = require('fs');
 const data = require('./data.json');
 const app = express();
-const port = process.env.port || 3000;
+const port = process.env.port || 3100;
 const upload = require('./file-upload');
 const database = require('./database');
 

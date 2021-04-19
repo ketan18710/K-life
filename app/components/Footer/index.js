@@ -2,12 +2,12 @@ import React from 'react'
 import Icon from '../Icon/index'
 import './style.scss'
 import MailIcon from '../../images/icons/mail.svg'
-import Logo from '../../images/logo.png'
+import Logo from '../../images/logo_white.png'
 function Footer() {
   return (
     <div className="Footer">
       <div className="info">
-        <img src={Logo} alt="K-life Logo"/>
+        <img src={Logo}  className="logo" alt="K-life Logo"/>
         <h4>Address : Suite 412</h4>
         <h4>Suncity Trade Tower,</h4>
         <h4> Sector 21,</h4>
