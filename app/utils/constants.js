@@ -11,12 +11,13 @@ export const STATUS_CODES = {
 }
 export const APP_ROUTES = {
   HOME : '/',
+  PRODUCTS : '/products',
   ROUGH : '/rough',
   ABOUT_US : '/about-us',
-  PRODUCT_CATEGORY : '/products/:category_slug/:sub_category_slug',
-  PRODUCT_CATEGORY_ALIAS : '/products/',
-  PRODUCT : '/products/:category_slug/:sub_category_slug/:model_id',
-  PRODUCT_ALIAS : (category_slug,sub_category_slug,model_id)=>`/products/${category_slug}/${sub_category_slug}/${model_id}`,
+  DOWNLOADS : '/downloads',
+  CONTACT_US : '/contact-us',
+  PRODUCT_CATEGORY : '/products/:category_slug/:model_id',
+  PRODUCT_CATEGORY_ALIAS : '/products',
   GALLERY : '/gallery',
   DASHBOARD : '/dashboard',
   DASHBOARD_ABOUTUS : '/dashboard/aboutUS',

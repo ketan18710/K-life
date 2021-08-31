@@ -5,9 +5,8 @@ import CloseIcon from '../../images/icons/close.svg'
 import DropDownIcon from './dropdownIcon.svg'
 import {redirectToUrl} from 'utils/common'
 import {APP_ROUTES} from 'utils/constants'
-import ContactUs from '../ContactUs/index'
 import { useParams } from 'react-router-dom';
-
+import Flag from './flag.png'
 function Header(props) {
   const [contactModal, setContactModal] = useState(false)
   const {categories} = props
@@ -78,14 +77,14 @@ const toggleHeader = function(direction, curScroll) {
       
       //replace 52 with the height of your header in px
   
-      header.classList.add('hidden_header');
-      mainBody.classList.add('noHeader');
-      prevDirection = direction;
+      // header.classList.add('hidden_header');
+      // mainBody.classList.add('noHeader');
+      // prevDirection = direction;
     }
     else if (direction === 1) {
-      header.classList.remove('hidden_header');
-      mainBody.classList.remove('noHeader');
-      prevDirection = direction;
+      // header.classList.remove('hidden_header');
+      // mainBody.classList.remove('noHeader');
+      // prevDirection = direction;
     }
   }
 };
@@ -99,7 +98,7 @@ const toggleHeader = function(direction, curScroll) {
     }
   }
   useEffect(() => {
-    showHideBigDropDown(false)
+    // showHideBigDropDown(false)
   }, [pathname])
   
   const openHeader = (open = true) => {
@@ -118,9 +117,9 @@ const toggleHeader = function(direction, curScroll) {
     const dropdownContent =  header && header.querySelector('.dropdownContent')
     const dropdownContentVisible = dropdownContent && dropdownContent.style.display !== 'none' ? true : false
     if(dropdownContentVisible){
-      document.body.style.overflowY = 'hidden'
+      // document.body.style.overflowY = 'hidden'
     }else{
-      document.body.style.overflowY = 'auto'
+      // document.body.style.overflowY = 'auto'
     }
   }
   useEffect(() => {
@@ -140,66 +139,35 @@ const toggleHeader = function(direction, curScroll) {
         </div>
         <div className="KL__header_menu">
           <p className="menuItem" id="homeMenuItem" onClick={()=>redirectToUrl(APP_ROUTES.HOME)}>HOME</p>
+          <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.PRODUCTS)}>PRODUCTS</p>
+          <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.DOWNLOADS)}>DOWNLOADS</p>
           <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.ABOUT_US)}>ABOUT US</p>
-          <p onMouseEnter={()=>showHideBigDropDown(true)} onMouseLeave={()=>showHideBigDropDown(false)} className="menuItem prodcutsMenu">
-              PRODUCTS
-              <div id="bigProductDropDown" className="dropdownMenu">
-                <div className="products">
-                  {
-                    categories && categories.map(category=>(
-                      <div className="productCategory">
-                        <h3 className="header">{category.title}</h3>
-                        {
-                          category["subCategories"].map(item=>(
-                            <p className="productItem"  onClick={()=>redirectToUrl(`${APP_ROUTES.PRODUCT_CATEGORY_ALIAS}${category.category_slug}/${item.sub_category_slug}`)}>{item.title}</p>
-                          ))
-                        }
-                      </div>
-                    ))
-                  }
-                </div>
-              </div>
-          </p>
-          <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.GALLERY)}>GALLERY</p>
-          <p className="menuItem" onClick={()=>setContactModal(true)}>CONTACT US</p>
+          <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.CONTACT_US)}>CONTACT US</p>
+          <p className="menuItem flag" ><img src={Flag} alt="indianFlag"/></p>
         </div>
       </div>
       <div className="smallHeader">
+      `<div  onClick={()=>redirectToUrl(APP_ROUTES.HOME)} className="image">
+          <img  onClick={()=>redirectToUrl(APP_ROUTES.HOME)}  src={Logo} alt="K_life_logo"/>
+        </div>
         <div className="dropdown">
-          <label htmlFor="header dropdown menu" onMouseEnter={()=>openHeader(true)} onClick={()=>openHeader(true)}><img src={DropDownIcon} alt="dropdown icon"/></label>
+          <label htmlFor="header dropdown menu" onClick={()=>openHeader(true)}><img src={DropDownIcon} alt="dropdown icon"/></label>
           <div className="dropdownContent">
             <div className="dropdownContentInnerWrapper">
               <div className="closeIcon" onClick={()=>openHeader(false)}><img src={CloseIcon} alt="Close dropdown"/></div>
               <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.HOME)}>HOME</p>
               <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.ABOUT_US)}>ABOUT US</p>
-              <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.GALLERY)}>GALLERY</p>
-              <p className="menuItem" onClick={()=>setContactModal(true)}>CONTACT US</p>
-              <p className="menuItem prodcutsMenu">
+              <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.PRODUCTS)}>PRODUCTS</p>
+              <p className="menuItem"  onClick={()=>redirectToUrl(APP_ROUTES.CONTACT_US)}>CONTACT US</p>
+              <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.DOWNLOADS)}>DOWNLOADS</p>
+              <p className="menuItem" onClick={()=>redirectToUrl(APP_ROUTES.PRODUCTS)}>
                 PRODUCTS
-                <div className="products">
-                  {
-                    categories && categories.map(category=>(
-                      <div className="productCategory">
-                        <h3 className="header">{category.title}</h3>
-                        {
-                          category["subCategories"].map(item=>(
-                            <p className="productItem"  onClick={()=>redirectToUrl(`${APP_ROUTES.PRODUCT_CATEGORY_ALIAS}${category.category_slug}/${item.sub_category_slug}`)}>{item.title}</p>
-                          ))
-                        }
-                      </div>
-                    ))
-                  }
-                </div>
               </p>
             </div>
           </div>
         </div>
-        <div  onClick={()=>redirectToUrl(APP_ROUTES.HOME)} className="image">
-          <img  onClick={()=>redirectToUrl(APP_ROUTES.HOME)}  src={Logo} alt="K_life_logo"/>
-        </div>
       </div>
     </div>
-      <ContactUs open={contactModal} CloseIcon={CloseIcon} close={()=>setContactModal(false)} />
     </>
   )
 }

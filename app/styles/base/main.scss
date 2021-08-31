@@ -1,16 +1,23 @@
 @import './mixins.scss';
 @import './colors.scss';
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');   
+
 $wt-light : 300;
 $wt-reg : 400;
 $wt-bold : 700;
 $wt-extraBold : 900;
+$xl : 1720px; 
+$lg : 1200px; 
+$md : 960px; 
+$sm : 700px; 
 .btn1__primary{
   width: 100px;
+  min-width: 100px;
   height: 30px ;
+  font-weight: $wt-bold;
+  min-height: 30px ;
   border: 1px solid #00a0a1;
   border-radius: 4px;
-  font-weight: $wt-bold;
   background-color: #00a0a1; 
   color: #fff;
   &:hover,&:active,&:focus{
@@ -18,14 +25,20 @@ $wt-extraBold : 900;
     outline: none;
     border-color: #00a0a1;
   }
+  .bt-spinner{
+    border-color: $black !important;
+    border-top-color: $white !important;
+  }
 }
 .btn1__secondary{
   width: 100px;
+  min-width: 100px;
   height: 30px ;
+  min-height: 30px ;
+  font-weight: $wt-bold;
   border: 1px solid #00a0a1;
   border-radius: 4px;
   background-color: #fff; 
-  font-weight: $wt-bold;
   color: #00a0a1;
   &:hover,&:active,&:focus{
     background-color: #00a0a1; 
@@ -36,11 +49,13 @@ $wt-extraBold : 900;
 }
 .btn2__primary{
   width: 100px;
+  min-width: 100px;
   height: 30px ;
+  min-height: 30px ;
+  font-weight: $wt-bold;
   border: 1px solid #151f6d;
   border-radius: 4px;
   background-color: #151f6d; 
-  font-weight: $wt-bold;
   color: #fff;
   &:hover,&:active,&:focus{
     background-color: #151f6d; 
@@ -50,10 +65,12 @@ $wt-extraBold : 900;
 }
 .btn2__secondary{
   width: 100px;
+  min-width: 100px;
   height: 30px ;
+  min-height: 30px ;
+  font-weight: $wt-bold;
   border: 1px solid #151f6d;
   border-radius: 4px;
-  font-weight: $wt-bold;
   background-color: #fff; 
   color: #151f6d;
   &:hover,&:active,&:focus{
@@ -64,3 +81,6 @@ $wt-extraBold : 900;
   }
 }
 $tablet : 1100px;
+
+
+

@@ -1,0 +1,57 @@
+@import '../../styles/base/main.scss';
+.downloads{
+  @include bannerContent;
+  .header{
+    background-color: $white;
+    @include titleDesc;
+  }
+  .headerGrey{
+    background-color: $grey;
+  }
+  .downloadContent{
+    gap: 3rem;
+    padding: 4rem;
+    .image{
+      img{
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        padding-bottom: 2rem;
+      }
+      border-bottom: 12px solid $primary-green;
+      margin-bottom: 2rem;
+    }
+    .materials,.manuals{
+      flex-direction: column;
+      @include spaceBetween;
+    }
+    .select{
+      background: $grey;
+      width: 400px;
+      max-width: 90%;
+      padding: 0.3rem 1rem;
+      margin-bottom: auto;
+      margin-top: 1rem;
+      &::before{
+        border: none;
+      }
+    }
+    .actions{
+      margin-top: 2rem;
+      width: 100%;
+      padding-left: 2rem;
+      h4{
+        width: 100%;
+        text-align: left;
+        font-weight: 300;
+        font-size: 25px;
+        color: $black;
+        cursor: pointer;
+        line-height: 34px;
+        @media screen and (max-width : $md) {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

@@ -7,20 +7,24 @@
 import React, { memo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import DEFAULT_IMAGE_1 from '../../utils/constants';
 import { compose } from 'redux';
-import Carrausel from '../../components/Carausel/index'
-import Icon from '../../components/Icon/index'
-import {Card3 as Card} from '../../components/Cards/index'
-import {DEFAULT_IMAGE_1,APP_ROUTES,NO_IMAGE} from 'utils/constants'
-import {redirectToUrl} from 'utils/common'
-import LeftIcon from '../../images/icons/left.svg'
-import LeftIconHover from '../../images/icons/left_hover_blue.svg'
-import RightIcon from '../../images/icons/right.svg'
-import RightIconHover from '../../images/icons/right_hover_blue.svg'
 import './style.scss'
-
-
+import {Grid,Hidden} from '@material-ui/core'
+import Slider from "react-slick";
+import {KeyboardArrowLeft as ArrowLeft, KeyboardArrowRight as ArrowRight} from '@material-ui/icons'
+import Bulb from './icons/bulb.png'
+import Ethics from './icons/ethics.png'
+import Prudent from './icons/prudent.png'
+import Quality from './icons/quality.png'
+import Service from './icons/service.png'
+import Marquee1 from './marquee/marquee1.png'
+import Marquee2 from './marquee/marquee2.png'
+import Marquee3 from './marquee/marquee3.png'
+import Marquee4 from './marquee/marquee4.png'
+import PregnancyCard from './latest/pregnancy.png'
+import OxygenConcentrator from './latest/OC.png'
+import BPM from './latest/bpm.png'
+import TensTherapy from './latest/tensTherapy.png'
 const Home=(props)=>{
   const {KLifeInfo : kLife,margueeProducts,latest :products,carrousel } = props
   console.table(props)
@@ -81,7 +85,24 @@ const Home=(props)=>{
       content.addEventListener('touchend', touch_end);
     }
   }, [document.getElementById("latestProductsFirst") && document.getElementById("latestProductsFirst").innerHTML])
-
+  const CarouselSettings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    lazyLoad: true,
+    prevArrow :  <ArrowLeft className="arrow" fontSize="large"/>,
+    nextArrow : <ArrowRight className="arrow" fontSize="large"/>,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 960,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      },
+    ]
+  };
   const setLatestProductCardsOpacity = (opacity) => {
     const latestProducts = document.querySelector('.latestProducts')
     if(latestProducts){
@@ -103,97 +124,202 @@ const Home=(props)=>{
 
   return (
     <div className="homePage">
-      <Carrausel carrousel={carrousel}/>
-      <div className="KLife__info">
-        <h3 className="title">WHY <span>K-LIFE</span></h3>
-        <div className="points">
-          {
-            kLife  && kLife.map((item=>
-              <div className="point">
-                <img src={item.image}/>
-                <h4 className="label">{item.label}</h4>
+      <div className="heroSection">
+        <div className="content">
+          <p>Innovative.</p>
+          <p>Modern</p>
+          <p>Personal.</p>
+        </div>
+      </div>
+      <div className="whyKLife">
+        <h2>Why K-Life?</h2>
+        <p>Advanced Technology Made Personal</p>
+        <div className="content">
+          <Grid container alignItems="center" justify="center" className="reasons"  >
+            <Grid className="reason" item md={2} xs={4} alignItems="center">
+              <img src={Bulb} alt="icon" />
+              <p>INNOVATIVE</p>
+              <div className="line"></div>
+            </Grid>
+            <Grid className="reason" item md={2} xs={4} alignItems="center">
+              <img src={Quality} alt="icon" />
+              <p>QUALITY</p>
+              <div className="line"></div>
+            </Grid>
+            <Grid className="reason" item md={2} xs={4} alignItems="center">
+              <img src={Service} alt="icon" />
+              <p>SERVICE</p>
+              <div className="line"></div>
+            </Grid>
+            <Grid className="reason" item md={2} xs={4} alignItems="center">
+              <img src={Ethics} alt="icon" />
+              <p>ETHICS</p>
+              <div className="line"></div>
+            </Grid>
+            <Grid className="reason" item md={2} xs={4} alignItems="center">
+              <img src={Prudent} alt="icon" />
+              <p>PRUDENT</p>
+              <div className="line"></div>
+            </Grid>
+          </Grid>
+        </div>
+        <p className="description">
+          At K-Life, we are focused on ensuring quality healthcare being provided to everyone. 
+          Ever since the brand has existed, we have served people in every corner of the country 
+          offering the latest in healthcare even in remote parts of the country. We have worked hard,
+          to put our knowledge and expertise to use and provide high quality, technologically advanced 
+          products to ensure people get to monitor, control and improve their well-being.
+        </p>
+      </div>
+      <div className="marquee">
+        <h2>Marquee Products</h2>
+        <p>Our Best Selling Categories</p>
+        <div className="carrousel">
+            <Slider {...CarouselSettings}>
+              <div  className="card" >
+                <img src={Marquee1} alt="" />
+                <div className="content">
+                  <h3>Digital Blood Glucose Meters</h3>
+                  <p>{`See Full Range   >`}</p>
+                </div>
               </div>
-            ))
-          }
+              <div  className="card" style={{backgroundImage : `url(${Marquee2})`}}>
+                <img src={Marquee2} alt="" />
+                <div className="content">
+                  <h3>Oxygen Concentrators</h3>
+                  <p>{`See Full Range   >`}</p>
+                </div>
+              </div>
+              <div  className="card" style={{backgroundImage : `url(${Marquee3})`}}>
+                <img src={Marquee3} alt="" />
+                <div className="content">
+                  <h3>HbA1c   Analyser</h3>
+                  <p>{`See Full Range   >`}</p>
+                </div>
+              </div>
+              <div  className="card" style={{backgroundImage : `url(${Marquee4})`}}>
+                <img src={Marquee4} alt="" />
+                <div className="content">
+                  <h3>Multi-Parameter Patient Monitors</h3>
+                  <p>{`See Full Range   >`}</p>
+                </div>
+              </div>
+              <div  className="card" style={{backgroundImage : `url(${Marquee4})`}}>
+                <img src={Marquee4} alt="" />
+                <div className="content">
+                  <h3>Multi-Parameter Patient Monitors</h3>
+                  <p>{`See Full Range   >`}</p>
+                </div>
+              </div>
+            </Slider>
         </div>
       </div>
-      <div className="marqeeProducts">
-        <h3 className="title">MARQUEE PRODUCTS</h3>
-        <h4 className="description">Our Best Selling Categories</h4>
+      <div className="latestProducts">
+        <div className="header">
+          <h2>What's New</h2>
+          <p>Our Most Latest Offerings</p>
+        </div>
         <div className="products">
-          {
-            margueeProducts && margueeProducts.length && margueeProducts.map((product=>
-              <div className="product">
+          <Hidden mdUp>
+            <Slider {...CarouselSettings}>
+              <div className="card">
                 <div className="image">
-                  <img src={product.image} alt={product.title + '  image'}/>
+                    <img src={PregnancyCard} alt="" />
                 </div>
-                <h3 className="title">{product.title}</h3>
-              </div>  
-            ))
-          }
+                <h4>Pregnancy Cards</h4>
+                <div className="content">
+                  <p>Pregacheck</p>
+                  <ArrowRight className="arrow" fontSize="large"/>
+                </div>
+              </div>
+              <div className="card">
+                <div className="image">
+                    <img src={PregnancyCard} alt="" />
+                </div>
+                <h4>Pregnancy Cards</h4>
+                <div className="content">
+                  <p>Pregacheck</p>
+                  <ArrowRight className="arrow" fontSize="large"/>
+                </div>
+              </div>
+              <div className="card">
+                <div className="image">
+                    <img src={PregnancyCard} alt="" />
+                </div>
+                <h4>Pregnancy Cards</h4>
+                <div className="content">
+                  <p>Pregacheck</p>
+                  <ArrowRight className="arrow" fontSize="large"/>
+                </div>
+              </div>
+              <div className="card">
+                <div className="image">
+                    <img src={PregnancyCard} alt="" />
+                </div>
+                <h4>Pregnancy Cards</h4>
+                <div className="content">
+                  <p>Pregacheck</p>
+                  <ArrowRight className="arrow" fontSize="large"/>
+                </div>
+              </div>
+              <div className="card">
+                <div className="image">
+                    <img src={PregnancyCard} alt="" />
+                </div>
+                <h4>Pregnancy Cards</h4>
+                <div className="content">
+                  <p>Pregacheck</p>
+                  <ArrowRight className="arrow" fontSize="large"/>
+                </div>
+              </div>
+            </Slider>
+          </Hidden>
+          <Hidden smDown>
+            <Grid container alignItems="center" justify="center" className="productsGrid">
+              <Grid xs={2} item className="card">
+                <div className="image">
+                  <img src={PregnancyCard} alt="" />
+                </div>
+                <h4>Pregnancy Cards</h4>
+                <div className="content">
+                  <p>Pregacheck</p>
+                  <ArrowRight className="arrow" fontSize="large"/>
+                </div>
+              </Grid>
+              <Grid xs={2} item className="card">
+                <div className="image">
+                  <img src={TensTherapy} alt="" />
+                </div>
+                <h4>Tens Therapy</h4>
+                <div className="content">
+                  <p>Tens Device</p>
+                  <ArrowRight className="arrow" fontSize="large"/>
+                </div>
+              </Grid>
+              <Grid xs={2} item className="card">
+                <div className="image">
+                  <img src={BPM} alt="" />
+                </div>
+                <h4>Digital Blood Pressure Monitors</h4>
+                <div className="content">
+                  <p>BPM 107</p>
+                  <ArrowRight className="arrow" fontSize="large"/>
+                </div>
+              </Grid>
+              <Grid xs={2} item className="card">
+                <div className="image">
+                  <img src={OxygenConcentrator} alt="" />
+                </div>
+                <h4>Oxygen Concentrators</h4>
+                <div className="content">
+                  <p>OC 502</p>
+                  <ArrowRight className="arrow" fontSize="large"/>
+                </div>
+              </Grid>
+            </Grid>
+          </Hidden>
         </div>
       </div>
-      {
-        products && products.length>0 &&
-        <div className="latestProducts">
-            <h3 className="title">LATEST PRODUCTS</h3>
-            <h4 className="description">Our Newest Launches</h4>
-            <div className="products">
-              <Icon
-                  mainIcon={LeftIcon}
-                  hoverIcon={LeftIconHover}
-                  alt="Show previous product Icon"
-                  action={goToPrevious}
-              />
-              {
-                products && products.length >0 &&
-                <div className="product" id="latestProductsFirst">
-                  <Card 
-                    title={products[index1].title}
-                    image={products[index1].image ? products[index1].image : NO_IMAGE}
-                    description={products[index1].description}
-                    action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(products[index1].category_slug,products[index1].sub_category_slug,products[index1].model_id))}
-                  />
-                </div>
-              }
-              {
-                products && products.length >1 &&
-                <div className="product">
-                  <Card 
-                    title={products[index2].title}
-                    image={products[index2].image ? products[index2].image : NO_IMAGE}
-                    description={products[index2].description}
-                    action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(products[index1].category_slug,products[index1].sub_category_slug,products[index1].model_id))}
-                  />
-                </div>
-              }
-              {
-                products && products.length >2 &&
-                <div className="product">
-                  <Card 
-                    title={products[index3].title}
-                    image={products[index3].image ? products[index3].image : NO_IMAGE}
-                    description={products[index3].description}
-                    action={()=>redirectToUrl(APP_ROUTES.PRODUCT_ALIAS(products[index1].category_slug,products[index1].sub_category_slug,products[index1].model_id))}
-                  />
-                </div>
-              }
-              <Icon
-                  mainIcon={RightIcon}
-                  hoverIcon={RightIconHover}
-                  alt="Show next product Icon"
-                  action={goToNext}
-              />
-            </div>
-            <div className="actionDots">
-              {
-                products && products.length > 0 && products.map(((product,index)=>
-                  <div className={index === firstProdIndex ? 'active dot' : 'dot'} onClick={()=>{setLatestProductCardsOpacity(false); changeFirstProdIndex(index)}}></div>  
-                ))
-              }
-            </div>
-        </div>
-      }
     </div>
   )
 }

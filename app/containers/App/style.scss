@@ -8,10 +8,15 @@
   z-index: 100;
   top: 0;
   left: 0;
+  height: 10px;
+// left: calc(50% - 1440px/2 - 6px);
+// top: 0px;
+  background: #82C0C9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 body, html {
   height: 100%;
-  font-family: 'Merriweather', serif;
+  font-family: 'Open Sans', sans-serif;
   // width: 100vw;
   // overflow-x: hidden;
 }
@@ -30,7 +35,7 @@ outline: none;
 border-radius: 4px;
 }
 #mainBody{
-  margin-top: 114px;
+  margin-top: 140px;
   // transition: margin-top 1s linear;
   #K_LIFE_loader{
     width: 100%;

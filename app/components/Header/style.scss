@@ -1,8 +1,8 @@
 @import '../../styles/base/main.scss';
 .KL__header{
-  height: 100px;
+  height: 130px;
   position: fixed;
-  top: 1rem;
+  top: 10px;
   z-index: 100;
   width: 100%;
   transition: top 0.4s linear;
@@ -15,14 +15,14 @@
     @include spaceBetween;
     padding: 0 3rem;
     .image{
-      width: 130px;
+      width: 140px;
       @include centreAlign;
       justify-content: flex-start;
       height: 90px;
       cursor: pointer;
       img{
-        width: 130px;
-        height: 90px;
+        width: 140px;
+        height: 104px;
         object-fit: cover;
       }
     }
@@ -38,9 +38,10 @@
         width: 20%;
         min-width: 160px;
         height: 100%;
-        font-size: 20px;
         cursor: pointer;
-        font-weight: $wt-reg;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
         color: $darkGrey;
         border-bottom: 4px solid $white;
         &:hover{
@@ -48,85 +49,10 @@
           color: $prim-highlight;
         }
       }
-      .menuItem.prodcutsMenu{
-        position: relative;
-        cursor: auto;
-        .dropdownMenu{
-          position: absolute;
-          top: 100px;
-          display: none;
-          border: none;
-          border-radius: 10px;
-          padding: 2rem;
-          min-width: 300px;
-          background-color: $white;
-          top: 104.4%!important;
-          left: -780px;
-          min-width: 1200px;
-          border-radius: 10px;
-          box-shadow: 0 0 8px rgba(85, 85, 85, 50%);
-          .products{
-            width: 100%;
-            @include spaceBetween;
-            padding-top: 0;
-            padding-bottom: 2rem !important;
-            border: none;
-            &:hover{
-              border: none;
-              background-color: $white;
-              border-radius: 10px;
-              background: white;
-            }
-            .productCategory{
-              width: 350px;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              // border-right: 1px solid $grey;
-              margin: 1.5rem 0;
-              margin-bottom: auto;
-              &:last-of-type{
-                border: none;
-              }
-              .header{
-                width: 70%;
-                height: 50px;
-                @include centreAlign;
-                background-color: $blue;
-                color: white;
-                border-radius: 6px;
-                font-size: 22px;
-                font-weight: $wt-reg;
-              }
-              .productItem{
-                color: $darkGrey;
-                font-size: 18px;
-                line-height: 20px;
-                cursor: pointer;
-                font-weight: $wt-bold;
-                &:hover{
-                  color: $primary-green;
-                }
-              }
-              &:nth-child(2){
-                .header{
-                  background-color: $yellow;
-                }
-              }
-              &:nth-child(3){
-                .header{
-                  background-color: $red;
-                }
-              }
-            }
-          }
-        }
+      .menuItem.flag{
         &:hover{
-          .dropdownMenu{
-            // display: block;
-          }
-
+          border-bottom: none;
+          color: transparent;
         }
       }
     }
@@ -145,15 +71,18 @@
     }
     .dropdown{
       position: relative;
-      margin-right: auto;
+      margin-left: auto;
       label{
         cursor: pointer;
+        width: 35px;
+        height: 35px;
+        object-fit: cover;
       }
       .dropdownContent{
         display: none;
-        width: fit-content;
-        padding: 2rem;
-        left: -50px;
+        width: max-content;
+        padding: 2rem 2rem;
+        right: -3rem;
         top: -33px;
         background-color: white;
         border-radius: 6px;
@@ -161,30 +90,52 @@
         justify-content: center;
         flex-direction: column;
         position: absolute;
-        max-width: 100vw;
-        min-width: 100vw;
+        max-width: max-content;
+        // min-width: 100vw;
         max-height: 650px;
         overflow-y: auto;
         z-index: 100000;      
+        -webkit-animation: slide-bottom 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-bottom 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        @-webkit-keyframes slide-bottom {
+          0% {
+            -webkit-transform: translateY(0);
+                    transform: translateY(0);
+          }
+          100% {
+            -webkit-transform: translateY(100px);
+                    transform: translateY(100px);
+          }
+        }
+        @keyframes slide-bottom {
+          0% {
+            -webkit-transform: translateY(0);
+                    transform: translateY(0);
+          }
+          100% {
+            -webkit-transform: translateY(100px);
+                    transform: translateY(100px);
+          }
+        }
         @media (max-width : 700px) {
           // max-height: 100vh;
           overflow-y: auto;
-          min-width: 104vw;
-          min-height: 95vh;
-          padding: 0;
+          // min-width: 104vw;
+          // min-height: 95vh;
+          // padding: 0;
           // padding-top: 21rem;
         }
         .dropdownContentInnerWrapper{
           position: relative;
-          max-height: 650px;
+          // max-height: 650px;
           @media (max-width : 700px) {
             max-height: unset;
-            min-height: 95vh;
+            // min-height: 95vh;
           }
           .closeIcon{
             position: absolute;
-            top: 42px;
-            right: 90px;
+            top: -2rem;
+            right: 0rem;
             z-index: 110000;      
             cursor: pointer;
             img{
@@ -195,24 +146,22 @@
             }
             @media (max-width : 700px) {
               // top: 42px;
-              right: 35px;
+              // right: 35px;
             }
           }
           .menuItem{
             @include centreAlign;
             margin: 0 auto;
-            min-width: 160px;
+            // min-width: 160px;
             height: 100%;
-            font-size:28px;
+            font-size:16px;
             font-weight: $wt-reg;
             color: $darkGrey;
+            padding: 0.2rem 0;
             border-bottom: 4px solid $white;
             &:hover{
               // border-bottom-color: $prim-highlight;
               color: $primary-green;
-            }
-            &:first-of-type{
-              margin-top: 3rem;
             }
           }
           .menuItem.prodcutsMenu{

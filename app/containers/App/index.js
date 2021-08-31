@@ -20,11 +20,12 @@ import makeSelectApp,{makeSelectConfig, makeSelectImageUpload, makeSelectSave} f
 import { getData,saveData, saveImage} from './actions'
 import reducer from './reducer';
 import saga from './saga';
-import rough from './rough';
 import { Switch, Route } from 'react-router-dom';
 import './style.scss';
 import HomePage from 'containers/Home/Loadable';
-import AboutUs from 'containers/AboutUs/index';
+import AboutUs from 'components/AboutUs';
+import Downloads from 'components/Downloads';
+import ContactUs from 'components/ContactUs';
 import Products from 'containers/Products/Loadable'
 import {DEFAULT_IMAGE_1 as IMG1,DEFAULT_IMAGE_2 as IMG2,API_CONSTANTS,APP_ROUTES,redirectFor} from 'utils/constants'
 import Header from 'components/Header';
@@ -39,10 +40,10 @@ export function App(props) {
   
   const [config, setConfig] = useState(null)
   const {userConfig,fetchData,save,saveData,uploadImage,uploadImageData} = props
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
-    fetchData()
-    setLoading(true)
+    // fetchData()
+    // setLoading(true)
   }, [])
   useEffect(() => {
     const {status,data} = userConfig
@@ -109,15 +110,13 @@ export function App(props) {
               <div id="mainBodyInnerWrapper">
                 <Switch>
                   <Route exact path={APP_ROUTES.HOME} component={()=><HomePage {...config} />} />
-                  <Route exact path={APP_ROUTES.ROUGH} component={rough} />
-                  <Route exact path={APP_ROUTES.PRODUCT_CATEGORY} component={()=><Products {...config} productDetail={false}/>} />
-                  <Route exact path={APP_ROUTES.PRODUCT} component={()=><Products {...config} productDetail={true}/>} />
+                  <Route exact path={APP_ROUTES.PRODUCTS} component={()=><Products {...config} productDetail={false}/>} />
                   <Route exact path={APP_ROUTES.ABOUT_US} component={()=><AboutUs  {...config} />} />
+                  <Route exact path={APP_ROUTES.DOWNLOADS} component={()=><Downloads  {...config} />} />
+                  <Route exact path={APP_ROUTES.CONTACT_US} component={()=><ContactUs  {...config} />} />
+                  <Route exact path={APP_ROUTES.PRODUCT_CATEGORY} component={()=><Products {...config} productDetail={true}/>} />
                   <Route exact path={APP_ROUTES.GALLERY} component={()=><Gallery {...config} />} />
                   <Route component={Error404} />
-                  {/* <Route exact path={APP_ROUTES.DASHBOARD} component={()=><Dashboard uploadImage={(data)=>uploadImage(data)}  saveData={(data)=>saveData(data)} save={save}   uploadImageData={uploadImageData} redirectFor={redirectFor.DASHBOARD} config={config} />} />
-                  <Route exact path={APP_ROUTES.DASHBOARD_ABOUTUS} component={()=><Dashboard uploadImage={(data)=>uploadImage(data)} saveData={(data)=>saveData(data)} save={save} setConfig={(data)=>setConfig(data)}  uploadImageData={uploadImageData} redirectFor={redirectFor.DASHBOARD_ABOUTUS} config={config} />} />
-                  <Route exact path={APP_ROUTES.DASHBOARD_GALLERY} component={()=><Dashboard uploadImage={(data)=>uploadImage(data)} saveData={(data)=>saveData(data)} save={save} setConfig={(data)=>setConfig(data)}  uploadImageData={uploadImageData} redirectFor={redirectFor.DASHBOARD_GALLERY} config={config} />} /> */}
                 </Switch>
               </div>
               <Footer />

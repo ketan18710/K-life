@@ -1,46 +1,101 @@
 @import '../../../styles/base/main.scss';
 .displayProducts{
-  background-color: $backgroundGreen;
-  background-image: linear-gradient(to bottom right, rgba(0, 160, 161, 0.2), rgba(0, 160, 161, 0.4));
-  padding: 6rem 3rem ;
-  @media (max-width : 1000px){
-    padding: 6rem 0rem ;
-  }
-  .title{
-    text-align: center;
-    font-size: 48px;
-    font-weight: $wt-reg;
-    color: $prim-highlight;
-  }
-  .description{
-    text-align: center;
-    font-size: 24px;
-    font-weight: $wt-bold;
-    color: $darkGrey;
-    margin: 2rem 0;
-    padding: 0 0.5rem;
+  .banner{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    @media screen and (max-width : $md) {
+      height: 250px;
+      background-image: url('./bannerSm.png');
+    }
+    @media screen and (max-width : $sm) {
+      height: 180px;
+    }
+    @media screen and (max-width : 400px) {
+      height: 150px;
+    }
   }
   .products{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 31% 31% 31%;
-    gap: 4rem 2rem ;
-    margin: 4rem auto;
-    justify-content: center;
-    @media (max-width : 1000px){
-      grid-template-columns: auto;
+    // padding: 0 8rem;
+    width: 80%;
+    margin: auto;
+    .MuiAccordionSummary-content, .MuiAccordionSummary-content.Mui-expanded {
+      margin: 0px ;
     }
-    .product{
-      @include centreAlign;
-      @media (max-width : 310px){
-        .Card4{
-          width: 250px;
-          min-width: unset;
+    .productCategory{
+      margin: 2rem 0;
+      box-shadow: none ;
+      border-radius: 0%;
+      &::before{
+        content: none;
+      }
+      .summary{
+        background-color: $primary-green;
+        color: $white;
+        border-radius: 10px;
+        @media screen and (max-width : $sm) {
+          min-height: 30px;
+        }
+        h2{
+          @include fontAdjust($sm,18px,null);
+          @include fontAdjust(400,16px,null);
+        }
+        svg{
+          color: $white;
+          font-size: x-large;
         }
       }
-      @media (max-width : 310px){
-        .Card4{
-          width: 200px;
+      .details{
+        flex-direction: column;
+        gap: 3rem;
+      }
+      .product{
+        svg{
+          color: $primary-green;
+          font-size: 3.5rem;
+          cursor: pointer;
+        }
+        .heroImage{
+          width: 100%;
+          height: 260px;
+          object-fit: contain;
+        }
+        .allImages{
+          img{
+            width: 100%;
+            height: 100px;
+            object-fit: contain;
+          }
+        }
+        .content{
+          padding-left: 2rem;
+          h3{
+            border-bottom: 3px solid $primary-green;
+            width: fit-content;
+            padding-bottom: 0.5rem;
+            padding-right: 2rem;
+            color: $black;
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 30px;
+          }
+          h4{
+            color: $primary-green;
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 30px;
+            margin: 1rem 0;
+          }
+          p{
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 24px;
+            color: $darkGrey;
+            span{
+              color: $primary-green;
+              margin-left: 0.5rem;
+            }
+          }
         }
       }
     }
