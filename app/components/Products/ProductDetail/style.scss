@@ -1,7 +1,7 @@
 @import '../../../styles/base/main.scss';
 .productDetail{
-  width: 90%;
-  margin: auto;
+  width: 96% !important;
+  margin: auto !important;
   .CategoryTitle{
     h2{
       font-size: 48px;
@@ -83,7 +83,7 @@
     }
     table{
       margin: 1.5rem 0;
-      width: 100%;
+      width: 60%;
       border-collapse: collapse;
       tr{
         &:nth-child(odd){

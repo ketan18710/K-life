@@ -36,6 +36,10 @@
           }
         }
       }
+      .submitButton{
+        background-color: $prim-highlight;
+        margin: 1rem 0;
+      }
     }
     .location{
       flex-direction: column;

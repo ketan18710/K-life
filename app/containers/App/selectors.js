@@ -20,20 +20,31 @@ const makeSelectApp = () =>
     selectAppDomain,
     substate => substate,
   );
-const  makeSelectConfig = () =>
+const makeSelectConfig = () =>
   createSelector(
     selectAppDomain,
     substate => substate.config,
   );
-const  makeSelectSave = () =>
+const makeSelectSave = () =>
   createSelector(
     selectAppDomain,
     substate => substate.save,
   );
-const  makeSelectImageUpload = () =>
+const makeSelectImageUpload = () =>
   createSelector(
     selectAppDomain,
     substate => substate.imageUpload,
   );
+const makeSelectInquiry = () =>
+  createSelector(
+    selectAppDomain,
+    substate => substate.inquiry,
+  );
 export default makeSelectApp;
-export { selectAppDomain,makeSelectConfig,makeSelectSave,makeSelectImageUpload };
+export {
+  selectAppDomain,
+  makeSelectConfig,
+  makeSelectSave,
+  makeSelectImageUpload,
+  makeSelectInquiry,
+};

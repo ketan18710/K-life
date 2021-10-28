@@ -120,7 +120,9 @@
     }
     .carrousel{
       padding : 6rem 0;
-      background-color: $prim-highlight;
+      // background-color: $prim-highlight;
+      background-image: linear-gradient(to left, #151f6d, #1b2575, #222b7d, #273286, #2d388e);
+      @include blueBgGradient;
       .MuiSvgIcon-root{
         color: $primary-green;
         font-size: 4rem;

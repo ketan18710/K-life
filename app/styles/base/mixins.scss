@@ -92,3 +92,6 @@
     }
   }
 }
+@mixin blueBgGradient {
+  background-image: linear-gradient(to left, #151f6d, #1b2575, #222b7d, #273286, #2d388e);
+}

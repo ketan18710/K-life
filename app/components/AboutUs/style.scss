@@ -4,6 +4,9 @@
   .header{
     background-color: $white;
     @include titleDesc;
+    h2{
+      padding-bottom: 23px;
+    }
   }
   .headerGrey{
     background-color: $grey;
@@ -11,11 +14,12 @@
   }
   .text{
     padding: 5rem 4rem;
-    background-color: $prim-highlight;
+    @include blueBgGradient;
     p{
       color: $white;
       font-weight: normal;
-      font-size: 25px;
+      font-size: 22px;
+      text-align: start;
       line-height: 34px;
     }
   }
@@ -28,8 +32,8 @@
     .info{
       p{
         font-weight: normal;
-        font-size: 14px;
-        line-height: 19px;
+        font-size: 20px;
+        line-height: 35px;
         &:last-of-type{
           margin-top: 2rem;
         }
